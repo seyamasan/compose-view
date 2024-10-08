@@ -7,8 +7,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.composeview.Greeting
-import com.example.composeview.Greeting2
+import androidx.navigation.toRoute
+import com.example.composeview.FirstView
+import com.example.composeview.HomeView
+import com.example.composeview.SecondView
 import javax.inject.Inject
 
 class AppNavigatorImpl @Inject constructor(
@@ -17,24 +19,35 @@ class AppNavigatorImpl @Inject constructor(
 ) : AppNavigator {
 
     @Composable
-    override fun NavigateTo(screen: Screens) {
+    override fun NavigateTo() {
         NavHost(
-            navController = navController,
-            startDestination = Screens.FIRST.name,
+            navController = navController,Screens.Home,
             modifier = Modifier.padding(innerPadding)
         ) {
-            // 画面1
-            composable(route = Screens.FIRST.name) {
-                Greeting(
+            // ホーム
+            composable<Screens.Home> {
+                HomeView(
                     navController = navController,
                     modifier = Modifier.padding(innerPadding)
                 )
             }
 
-            // 画面2
-            composable(route = Screens.SECOND.name) {
-                Greeting2(
+            // 画面1
+            composable<Screens.First> { backStackEntry ->
+                val first: Screens.First = backStackEntry.toRoute()
+                FirstView(
                     navController = navController,
+                    title = first.title,
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
+
+            // 画面2
+            composable<Screens.Second> { backStackEntry ->
+                val second: Screens.Second = backStackEntry.toRoute()
+                SecondView(
+                    navController = navController,
+                    title = second.title,
                     modifier = Modifier.padding(innerPadding)
                 )
             }

@@ -1,13 +1,24 @@
 package com.example.composeview.navigator
 
 import androidx.compose.runtime.Composable
-
-enum class Screens {
-    FIRST,
-    SECOND
-}
+import kotlinx.serialization.Serializable
 
 interface AppNavigator {
     @Composable
-    fun NavigateTo(screen: Screens)
+    fun NavigateTo()
+}
+
+class Screens {
+    @Serializable
+    object Home
+
+    @Serializable
+    data class First(
+        val title: String
+    )
+
+    @Serializable
+    data class Second(
+        val title: String
+    )
 }
