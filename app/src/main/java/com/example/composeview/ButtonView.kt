@@ -12,6 +12,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -20,12 +21,12 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FirstView(navController: NavHostController?, title: String) {
+fun ButtonView(navController: NavHostController?, title: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
-                title = { Text("First View") },
+                title = { Text(stringResource(id = R.string.button_view_name)) },
                 colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
@@ -48,8 +49,8 @@ fun FirstView(navController: NavHostController?, title: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun FirstViewPreview() {
+fun ButtonViewPreview() {
     ComposeViewTheme {
-        FirstView(null, title = "First Viewだよ")
+        ButtonView(null, title = "Button Viewだよ")
     }
 }

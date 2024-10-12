@@ -28,7 +28,7 @@ import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
 
 val screenList = listOf(
-    Screens.First("First Viewだよ"),
+    Screens.ButtonView("Button Viewだよ"),
     Screens.Second("Second Viewだよ")
 )
 
@@ -77,7 +77,7 @@ private fun CardContent(screen: Any) {
             .fillMaxWidth()
     ) {
         val name = when (screen) {
-            is Screens.First -> "First"
+            is Screens.ButtonView -> stringResource(id = R.string.button_view_name)
             is Screens.Second -> "Second"
             else -> {"null"}
         }

@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.composeview.FirstView
+import com.example.composeview.ButtonView
 import com.example.composeview.HomeView
 import com.example.composeview.SecondView
 import javax.inject.Inject
@@ -26,12 +26,12 @@ class AppNavigatorImpl @Inject constructor(
                 )
             }
 
-            // 画面1
-            composable<Screens.First> { backStackEntry ->
-                val first: Screens.First = backStackEntry.toRoute()
-                FirstView(
+            // ButtonのView
+            composable<Screens.ButtonView> { backStackEntry ->
+                val buttonView: Screens.ButtonView = backStackEntry.toRoute()
+                ButtonView(
                     navController = navController,
-                    title = first.title
+                    title = buttonView.title
                 )
             }
 

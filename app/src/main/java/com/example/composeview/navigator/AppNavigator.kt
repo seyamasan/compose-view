@@ -13,7 +13,7 @@ class Screens {
     object Home
 
     @Serializable
-    data class First(
+    data class ButtonView (
         val title: String
     )
 
