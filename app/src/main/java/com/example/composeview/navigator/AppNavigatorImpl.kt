@@ -6,8 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.composeview.ButtonView
+import com.example.composeview.FloatingActionButtonView
 import com.example.composeview.HomeView
-import com.example.composeview.SecondView
 import javax.inject.Inject
 
 class AppNavigatorImpl @Inject constructor(
@@ -31,16 +31,16 @@ class AppNavigatorImpl @Inject constructor(
                 val buttonView: Screens.ButtonView = backStackEntry.toRoute()
                 ButtonView(
                     navController = navController,
-                    title = buttonView.title
+                    description = buttonView.description
                 )
             }
 
-            // 画面2
-            composable<Screens.Second> { backStackEntry ->
-                val second: Screens.Second = backStackEntry.toRoute()
-                SecondView(
+            // FloatingActionButtonのView
+            composable<Screens.FloatingActionButtonView> { backStackEntry ->
+                val second: Screens.FloatingActionButtonView = backStackEntry.toRoute()
+                FloatingActionButtonView(
                     navController = navController,
-                    title = second.title
+                    description = second.description
                 )
             }
         }

@@ -14,11 +14,11 @@ class Screens {
 
     @Serializable
     data class ButtonView (
-        val title: String
+        val description: String
     )
 
     @Serializable
-    data class Second(
-        val title: String
+    data class FloatingActionButtonView(
+        val description: String
     )
 }

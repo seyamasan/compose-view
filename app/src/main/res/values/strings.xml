@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Compose View</string>
     <string name="button_view_name">Button View</string>
+    <string name="button_view_description">Button Viewだよ</string>
+    <string name="floating_action_button_view_name">Floating Action Button View</string>
+    <string name="floating_action_button_view_description">Floating Action Button Viewだよ</string>
 </resources>

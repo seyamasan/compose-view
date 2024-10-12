@@ -12,6 +12,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -20,12 +21,12 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SecondView(navController: NavHostController?, title: String) {
+fun FloatingActionButtonView(navController: NavHostController?, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopAppBar(
-                title = { Text("Second View") },
+                title = { Text(stringResource(id = R.string.floating_action_button_view_name)) },
                 colors = topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
@@ -38,7 +39,7 @@ fun SecondView(navController: NavHostController?, title: String) {
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(text = title)
+            Text(text = description)
             Button(onClick = { navController?.navigate(Screens.Home) }) {
                 Text(text = "戻る")
             }
@@ -48,8 +49,8 @@ fun SecondView(navController: NavHostController?, title: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun SecondViewPreview() {
+fun FloatingActionButtonViewPreview() {
     ComposeViewTheme {
-        SecondView(null, title = "Second Viewだよ")
+        FloatingActionButtonView(null, description = stringResource(id = R.string.floating_action_button_view_description))
     }
 }

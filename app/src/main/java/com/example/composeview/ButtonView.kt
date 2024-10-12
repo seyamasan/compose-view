@@ -21,7 +21,7 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ButtonView(navController: NavHostController?, title: String) {
+fun ButtonView(navController: NavHostController?, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
@@ -39,7 +39,7 @@ fun ButtonView(navController: NavHostController?, title: String) {
                 .padding(innerPadding),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Text(text = title)
+            Text(text = description)
             Button(onClick = { navController?.navigate(Screens.Home) }) {
                 Text(text = "戻る")
             }
@@ -51,6 +51,6 @@ fun ButtonView(navController: NavHostController?, title: String) {
 @Composable
 fun ButtonViewPreview() {
     ComposeViewTheme {
-        ButtonView(null, title = "Button Viewだよ")
+        ButtonView(null, description = stringResource(id = R.string.button_view_description))
     }
 }

@@ -27,14 +27,14 @@ import androidx.navigation.NavHostController
 import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
 
-val screenList = listOf(
-    Screens.ButtonView("Button Viewだよ"),
-    Screens.Second("Second Viewだよ")
-)
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
+    val screenList = listOf(
+        Screens.ButtonView(description = stringResource(id = R.string.button_view_description)),
+        Screens.FloatingActionButtonView(description = stringResource(id = R.string.floating_action_button_view_description))
+    )
+
     // Scaffoldを使ってtopBarを表示 & innerPaddingをViewのpaddingに適応でbarと重ならないようにしている
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -78,7 +78,7 @@ private fun CardContent(screen: Any) {
     ) {
         val name = when (screen) {
             is Screens.ButtonView -> stringResource(id = R.string.button_view_name)
-            is Screens.Second -> "Second"
+            is Screens.FloatingActionButtonView -> stringResource(id = R.string.floating_action_button_view_name)
             else -> {"null"}
         }
 
