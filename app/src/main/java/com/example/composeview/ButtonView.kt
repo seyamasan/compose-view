@@ -20,11 +20,16 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -33,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,6 +51,9 @@ fun ButtonView(navController: NavHostController?, description: String) {
         stringResource(id = R.string.elevated_button_name),
         stringResource(id = R.string.text_button_name)
     )
+    val scope = rememberCoroutineScope() // コルーチンスコープ
+    val snackbarHostState = remember { SnackbarHostState() } // スナックバー
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
@@ -59,6 +69,9 @@ fun ButtonView(navController: NavHostController?, description: String) {
                     }
                 }
             )
+        },
+        snackbarHost = {
+            SnackbarHost(hostState = snackbarHostState)
         }
     ) { innerPadding ->
         Column(
@@ -74,6 +87,8 @@ fun ButtonView(navController: NavHostController?, description: String) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 itemsIndexed(buttonNameList) { index, name ->
+                    val message = name + stringResource(id = R.string.tapped_button_msg)
+
                     Card(
                         colors = CardDefaults.cardColors(
                             containerColor = MaterialTheme.colorScheme.surfaceContainer
@@ -93,7 +108,19 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 0 -> {
                                     // 塗りつぶしのボタン
                                     Button(
-                                        onClick = { }
+                                        onClick = {
+                                            showSnackbar(
+                                                scope = scope,
+                                                snackbarHostState = snackbarHostState,
+                                                message = message
+                                            )
+                                        },
+//                                        enabled = false, // 活性/非活性を制御できる
+//                                        colors = ButtonDefaults.buttonColors(
+//                                            containerColor = Color.Red,
+//                                            contentColor = Color.Black
+//                                        ), // ボタンの色を変えることができる
+//                                        contentPadding = PaddingValues(32.dp) // ボタン内のpadding値を設定できる
                                     ) {
                                         Text(
                                             text = name
@@ -103,7 +130,13 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 // 塗りつぶしのメインの色より薄い？ボタン
                                 1 -> {
                                     FilledTonalButton(
-                                        onClick = { }
+                                        onClick = {
+                                            showSnackbar(
+                                                scope = scope,
+                                                snackbarHostState = snackbarHostState,
+                                                message = message
+                                            )
+                                        }
                                     ) {
                                         Text(
                                             text = name
@@ -113,7 +146,13 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 // 枠線付きボタン
                                 2 -> {
                                     OutlinedButton(
-                                        onClick = { }
+                                        onClick = {
+                                            showSnackbar(
+                                                scope = scope,
+                                                snackbarHostState = snackbarHostState,
+                                                message = message
+                                            )
+                                        }
                                     ) {
                                         Text(
                                             text = name
@@ -123,7 +162,13 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 // 立体ボタン
                                 3 -> {
                                     ElevatedButton(
-                                        onClick = { }
+                                        onClick = {
+                                            showSnackbar(
+                                                scope = scope,
+                                                snackbarHostState = snackbarHostState,
+                                                message = message
+                                            )
+                                        }
                                     ) {
                                         Text(
                                             text = name
@@ -133,7 +178,13 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 // テキストボタン
                                 4 -> {
                                     TextButton(
-                                        onClick = { }
+                                        onClick = {
+                                            showSnackbar(
+                                                scope = scope,
+                                                snackbarHostState = snackbarHostState,
+                                                message = message
+                                            )
+                                        }
                                     ) {
                                         Text(
                                             text = name
@@ -146,6 +197,18 @@ fun ButtonView(navController: NavHostController?, description: String) {
                 }
             }
         }
+    }
+}
+
+fun showSnackbar(scope: CoroutineScope, snackbarHostState: SnackbarHostState, message: String) {
+    scope.launch {
+        // showSnackbar()はsuspend関数なのでコルーチンスコープ内で実行
+        snackbarHostState
+            .showSnackbar(
+                message = message,
+                // デフォルト値はSnackbarDuration.Short
+                duration = SnackbarDuration.Short // すぐ消える
+            )
     }
 }
 

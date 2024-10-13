@@ -9,6 +9,7 @@
     <string name="outlined_button_name">OutlinedButton</string>
     <string name="elevated_button_name">ElevatedButton</string>
     <string name="text_button_name">TextButton</string>
+    <string name="tapped_button_msg">をタップしました。</string>
 
 <!--    FloatingActionButtonView-->
     <string name="floating_action_button_view_name">Floating Action Button View</string>
