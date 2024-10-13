@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">Compose View</string>
+
+<!--    Button View-->
     <string name="button_view_name">Button View</string>
-    <string name="button_view_description">Button Viewだよ</string>
+    <string name="button_view_description">Jetpack ComposeのButtonは5種類あります。</string>
+    <string name="button_name">Button</string>
+    <string name="filled_tonal_button_name">FilledTonalButton</string>
+    <string name="outlined_button_name">OutlinedButton</string>
+    <string name="elevated_button_name">ElevatedButton</string>
+    <string name="text_button_name">TextButton</string>
+
+<!--    FloatingActionButtonView-->
     <string name="floating_action_button_view_name">Floating Action Button View</string>
     <string name="floating_action_button_view_description">Floating Action Button Viewだよ</string>
+
 </resources>

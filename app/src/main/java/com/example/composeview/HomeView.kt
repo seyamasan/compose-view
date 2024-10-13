@@ -90,11 +90,7 @@ private fun CardContent(screen: Any) {
             modifier = Modifier.weight(1f)
         )
 
-        IconButton(
-            onClick = {
-                // 何も設定しない
-            }
-        ) {
+        IconButton(onClick = {}) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = "Show view button"
