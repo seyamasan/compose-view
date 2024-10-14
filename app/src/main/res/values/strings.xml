@@ -13,6 +13,7 @@
 
 <!--    FloatingActionButtonView-->
     <string name="floating_action_button_view_name">Floating Action Button View</string>
-    <string name="floating_action_button_view_description">Floating Action Button Viewだよ</string>
+    <string name="floating_action_button_view_description">Jetpack ComposeのFloatingActionButtonは4種類あります。</string>
+    <string name="extended_floating_action_button_name">Extended FAB</string>
 
 </resources>
