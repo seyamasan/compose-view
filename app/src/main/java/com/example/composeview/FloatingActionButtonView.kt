@@ -86,7 +86,10 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
                                 snackbarHostState = snackbarHostState,
                                 message = buttonNameList[0] + messageEnding
                             )
-                        }
+                        },
+//                        containerColor = Color.Magenta, // ボタンの背景色を変更できる
+//                        contentColor = Color.LightGray, // ボタンの中の要素の色帰ることができる
+//                        shape = CircleShape // 角丸にできる
                     ) {
                         Icon(Icons.Filled.Edit, "Floating ActionButton")
                     }
