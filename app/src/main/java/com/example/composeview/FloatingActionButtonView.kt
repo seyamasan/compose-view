@@ -1,12 +1,17 @@
 package com.example.composeview
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButton
@@ -16,15 +21,18 @@ import androidx.compose.material3.LargeFloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SmallFloatingActionButton
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,11 +40,21 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
+import com.example.composeview.utils.SnackbarUtils
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FloatingActionButtonView(navController: NavHostController?, description: String) {
-    var showButtons by rememberSaveable { mutableStateOf(false) }
+    val buttonNameList = listOf(
+        stringResource(id = R.string.fab_name),
+        stringResource(id = R.string.small_fab_name),
+        stringResource(id = R.string.large_name),
+        stringResource(id = R.string.extended_fab)
+    )
+    var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val messageEnding = stringResource(id = R.string.tapped_button_msg)
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -54,46 +72,69 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
                 }
             )
         },
+        snackbarHost = {
+            SnackbarHost(hostState = snackbarHostState)
+        },
         floatingActionButton = {
-            Box(
-                modifier = Modifier
-                    .padding(16.dp),
-                contentAlignment = Alignment.BottomEnd // FABを右下に配置
-            ) {
-                if (showButtons) {
-                    // FABの上に表示するボタン
-                    Column(
-                        horizontalAlignment = Alignment.End, // ボタンのEnd（右側）を揃える
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
-                        modifier = Modifier.padding(bottom = 76.dp)
+            when (selectedIndex) {
+                0 -> {
+                    // 普通のFAB
+                    FloatingActionButton(
+                        onClick = {
+                            SnackbarUtils.showSnackbar(
+                                scope = scope,
+                                snackbarHostState = snackbarHostState,
+                                message = buttonNameList[0] + messageEnding
+                            )
+                        }
                     ) {
-                        // 普通のFAB
-                        FloatingActionButton(
-                            onClick = {  },
-                        ) {
-                            Icon(Icons.Filled.Edit, "Floating action button.")
-                        }
-                        // 小さいのFAB
-                        SmallFloatingActionButton(
-                            onClick = {  }
-                        ) {
-                            Icon(Icons.Filled.Edit, "Small floating action button.")
-                        }
-                        // 大きいFAB
-                        LargeFloatingActionButton(
-                            onClick = {  }
-                        ) {
-                            Icon(Icons.Filled.Edit, "Large floating action button")
-                        }
+                        Icon(Icons.Filled.Edit, "Floating ActionButton")
                     }
                 }
-                // 拡張FAB
-                ExtendedFloatingActionButton(
-                    onClick = { showButtons = !showButtons },
-                    icon = { Icon(Icons.Filled.Edit, contentDescription = "Edit") },
-                    text = { Text(stringResource(id = R.string.extended_floating_action_button_name)) }
-                )
+                1 -> {
+                    // 小さいのFAB
+                    SmallFloatingActionButton(
+                        onClick = {
+                            SnackbarUtils.showSnackbar(
+                                scope = scope,
+                                snackbarHostState = snackbarHostState,
+                                message = buttonNameList[1] + messageEnding
+                            )
+                        }
+                    ) {
+                        Icon(Icons.Filled.Edit, "Small floating action button.")
+                    }
+                }
+                2 -> {
+                    // 大きいFAB
+                    LargeFloatingActionButton(
+                        onClick = {
+                            SnackbarUtils.showSnackbar(
+                                scope = scope,
+                                snackbarHostState = snackbarHostState,
+                                message = buttonNameList[2] + messageEnding
+                            )
+                        }
+                    ) {
+                        Icon(Icons.Filled.Edit, "Large floating action button")
+                    }
+                }
+                3 -> {
+                    // 拡張FAB
+                    ExtendedFloatingActionButton(
+                        onClick = {
+                            SnackbarUtils.showSnackbar(
+                                scope = scope,
+                                snackbarHostState = snackbarHostState,
+                                message = buttonNameList[3] + messageEnding
+                            )
+                        },
+                        icon = { Icon(Icons.Filled.Edit, contentDescription = "Extended Floating ActionButton") },
+                        text = { Text(stringResource(id = R.string.extended_fab)) }
+                    )
+                }
             }
+
         }
     ) { innerPadding ->
         Column(
@@ -102,6 +143,27 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(text = description)
+
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                itemsIndexed(buttonNameList) { index, name ->
+                    ElevatedButton(
+                        onClick = {
+                            selectedIndex = index
+                        }
+                    ) {
+                        Text(
+                            text = name
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(16.dp))
+                }
+            }
         }
     }
 }

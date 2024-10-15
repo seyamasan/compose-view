@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
+import com.example.composeview.utils.SnackbarUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -109,7 +110,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                     // 塗りつぶしのボタン
                                     Button(
                                         onClick = {
-                                            showSnackbar(
+                                            SnackbarUtils.showSnackbar(
                                                 scope = scope,
                                                 snackbarHostState = snackbarHostState,
                                                 message = message
@@ -131,7 +132,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 1 -> {
                                     FilledTonalButton(
                                         onClick = {
-                                            showSnackbar(
+                                            SnackbarUtils.showSnackbar(
                                                 scope = scope,
                                                 snackbarHostState = snackbarHostState,
                                                 message = message
@@ -147,7 +148,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 2 -> {
                                     OutlinedButton(
                                         onClick = {
-                                            showSnackbar(
+                                            SnackbarUtils.showSnackbar(
                                                 scope = scope,
                                                 snackbarHostState = snackbarHostState,
                                                 message = message
@@ -163,7 +164,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 3 -> {
                                     ElevatedButton(
                                         onClick = {
-                                            showSnackbar(
+                                            SnackbarUtils.showSnackbar(
                                                 scope = scope,
                                                 snackbarHostState = snackbarHostState,
                                                 message = message
@@ -179,7 +180,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
                                 4 -> {
                                     TextButton(
                                         onClick = {
-                                            showSnackbar(
+                                            SnackbarUtils.showSnackbar(
                                                 scope = scope,
                                                 snackbarHostState = snackbarHostState,
                                                 message = message
@@ -197,18 +198,6 @@ fun ButtonView(navController: NavHostController?, description: String) {
                 }
             }
         }
-    }
-}
-
-fun showSnackbar(scope: CoroutineScope, snackbarHostState: SnackbarHostState, message: String) {
-    scope.launch {
-        // showSnackbar()はsuspend関数なのでコルーチンスコープ内で実行
-        snackbarHostState
-            .showSnackbar(
-                message = message,
-                // デフォルト値はSnackbarDuration.Short
-                duration = SnackbarDuration.Short // すぐ消える
-            )
     }
 }
 

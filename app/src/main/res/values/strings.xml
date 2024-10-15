@@ -14,6 +14,9 @@
 <!--    FloatingActionButtonView-->
     <string name="floating_action_button_view_name">Floating Action Button View</string>
     <string name="floating_action_button_view_description">Jetpack ComposeのFloatingActionButtonは4種類あります。</string>
-    <string name="extended_floating_action_button_name">Extended FAB</string>
+    <string name="fab_name">FAB</string>
+    <string name="small_fab_name">Small FAB</string>
+    <string name="large_name">Large FAB</string>
+    <string name="extended_fab">Extended FAB</string>
 
 </resources>
