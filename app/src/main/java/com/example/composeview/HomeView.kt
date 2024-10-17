@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -32,7 +33,8 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
     val screenList = listOf(
         Screens.ButtonView(description = stringResource(id = R.string.button_view_description)),
-        Screens.FloatingActionButtonView(description = stringResource(id = R.string.floating_action_button_view_description))
+        Screens.FloatingActionButtonView(description = stringResource(id = R.string.floating_action_button_view_description)),
+        Screens.CardView(description = stringResource(id = R.string.card_view_description))
     )
 
     // Scaffoldを使ってtopBarを表示 & innerPaddingをViewのpaddingに適応でbarと重ならないようにしている
@@ -51,13 +53,14 @@ fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
         LazyColumn(
             modifier = modifier
                 .padding(innerPadding)
+                .padding(8.dp)
         ) {
             items(screenList) { screen ->
                 Card(
                     colors = CardDefaults.cardColors(
                         containerColor = MaterialTheme.colorScheme.primary
                     ),
-                    modifier = modifier.padding(vertical = 4.dp, horizontal = 8.dp),
+                    modifier = modifier.padding(vertical = 4.dp),
                     onClick = {
                         navController?.navigate(screen)
                     }
@@ -74,11 +77,13 @@ private fun CardContent(screen: Any) {
     Row(
         modifier = Modifier
             .padding(12.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         val name = when (screen) {
             is Screens.ButtonView -> stringResource(id = R.string.button_view_name)
             is Screens.FloatingActionButtonView -> stringResource(id = R.string.floating_action_button_view_name)
+            is Screens.CardView -> stringResource(id = R.string.card_view_name)
             else -> {"null"}
         }
 

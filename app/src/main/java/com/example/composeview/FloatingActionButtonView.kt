@@ -142,15 +142,15 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
     ) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(text = description)
 
             LazyRow(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
                 itemsIndexed(buttonNameList) { index, name ->

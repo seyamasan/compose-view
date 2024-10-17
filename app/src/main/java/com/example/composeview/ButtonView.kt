@@ -74,7 +74,8 @@ fun ButtonView(navController: NavHostController?, description: String) {
     ) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(text = description)
@@ -91,7 +92,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
                         colors = CardDefaults.cardColors(
                             containerColor = MaterialTheme.colorScheme.surfaceContainer
                         ),
-                        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+                        modifier = Modifier.padding(vertical = 4.dp)
                     ) {
                         Row (
                             modifier = Modifier

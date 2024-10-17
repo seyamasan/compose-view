@@ -21,4 +21,9 @@ class Screens {
     data class FloatingActionButtonView(
         val description: String
     )
+
+    @Serializable
+    data class CardView(
+        val description: String
+    )
 }
