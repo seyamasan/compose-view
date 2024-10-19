@@ -22,5 +22,9 @@
 <!--    CardView-->
     <string name="card_view_name">Card View</string>
     <string name="card_view_description">Cardは、UIの要素を視覚的に分離して整理するためのコンテナとして使用されます。</string>
+    <string name="card_view_comment_title">コメント</string>
+    <string name="card_view_comment1">やっぱりHIPHOP最高!</string>
+    <string name="card_view_comment2">こういうの待ってた。</string>
+    <string name="card_view_comment3">ラーメン食べたいなぁ〜</string>
 
 </resources>
