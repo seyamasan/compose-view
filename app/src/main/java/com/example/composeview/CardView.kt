@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.filled.Face
@@ -63,133 +64,141 @@ fun CardView(navController: NavHostController?, description: String) {
         ) {
             Text(text = description)
 
-            // 普通のカード
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant
-                )
-            ) {
-                Row(
-                    modifier = Modifier
-                        .padding(top = 10.dp, start = 10.dp, end = 10.dp)
-                ) {
-                    // alignByBaseline()でテキストのベースラインを揃えている
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = stringResource(id = R.string.card_view_comment_title)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = "192",
-                        fontSize = 14.sp
-                    )
-                }
-
-                Row(
-                    modifier = Modifier
-                        .padding(top = 4.dp, start = 10.dp, end = 10.dp, bottom = 6.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Face,
-                        contentDescription = "Users",
+            LazyColumn {
+                item {
+                    // 普通のカード
+                    Card(
                         modifier = Modifier
-                            .size(30.dp)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = stringResource(id = R.string.card_view_comment1),
-                        fontSize = 14.sp
-                    )
-                }
-            }
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant
+                        )
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 10.dp, start = 10.dp, end = 10.dp)
+                        ) {
+                            // alignByBaseline()でテキストのベースラインを揃えている
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = stringResource(id = R.string.card_view_comment_title)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = "192",
+                                fontSize = 14.sp
+                            )
+                        }
 
-            // 立体感のあるカード
-            ElevatedCard(
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = 6.dp
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier
-                        .padding(top = 10.dp, start = 10.dp, end = 10.dp)
-                ) {
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = stringResource(id = R.string.card_view_comment_title)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = "19",
-                        fontSize = 14.sp
-                    )
-                }
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 4.dp, start = 10.dp, end = 10.dp, bottom = 6.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Face,
+                                contentDescription = "Users",
+                                modifier = Modifier
+                                    .size(30.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = stringResource(id = R.string.card_view_comment1),
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
 
-                Row(
-                    modifier = Modifier
-                        .padding(top = 4.dp, start = 10.dp, end = 10.dp, bottom = 6.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Face,
-                        contentDescription = "Users",
+                    // 立体感のあるカード
+                    ElevatedCard(
+                        elevation = CardDefaults.cardElevation(
+                            defaultElevation = 6.dp
+                        ),
                         modifier = Modifier
-                            .size(30.dp)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = stringResource(id = R.string.card_view_comment2),
-                        fontSize = 14.sp
-                    )
-                }
-            }
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 10.dp, start = 10.dp, end = 10.dp)
+                        ) {
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = stringResource(id = R.string.card_view_comment_title)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = "19",
+                                fontSize = 14.sp
+                            )
+                        }
 
-            // 枠線があるカード
-            OutlinedCard(
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                ),
-                border = BorderStroke(1.dp, Color.Black),
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier
-                        .padding(top = 10.dp, start = 10.dp, end = 10.dp)
-                ) {
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = stringResource(id = R.string.card_view_comment_title)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = "57",
-                        fontSize = 14.sp
-                    )
-                }
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 4.dp, start = 10.dp, end = 10.dp, bottom = 6.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Face,
+                                contentDescription = "Users",
+                                modifier = Modifier
+                                    .size(30.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = stringResource(id = R.string.card_view_comment2),
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
 
-                Row(
-                    modifier = Modifier
-                        .padding(top = 4.dp, start = 10.dp, end = 10.dp, bottom = 6.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Face,
-                        contentDescription = "Users",
+                    // 枠線があるカード
+                    OutlinedCard(
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surface,
+                        ),
+                        border = BorderStroke(1.dp, Color.Black),
                         modifier = Modifier
-                            .size(30.dp)
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        modifier = Modifier.alignByBaseline(),
-                        text = stringResource(id = R.string.card_view_comment3),
-                        fontSize = 14.sp
-                    )
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 10.dp, start = 10.dp, end = 10.dp)
+                        ) {
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = stringResource(id = R.string.card_view_comment_title)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = "57",
+                                fontSize = 14.sp
+                            )
+                        }
+
+                        Row(
+                            modifier = Modifier
+                                .padding(top = 4.dp, start = 10.dp, end = 10.dp, bottom = 6.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.Face,
+                                contentDescription = "Users",
+                                modifier = Modifier
+                                    .size(30.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text(
+                                modifier = Modifier.alignByBaseline(),
+                                text = stringResource(id = R.string.card_view_comment3),
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
                 }
             }
         }
