@@ -34,7 +34,8 @@ fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
     val screenList = listOf(
         Screens.ButtonView(description = stringResource(id = R.string.button_view_description)),
         Screens.FloatingActionButtonView(description = stringResource(id = R.string.floating_action_button_view_description)),
-        Screens.CardView(description = stringResource(id = R.string.card_view_description))
+        Screens.CardView(description = stringResource(id = R.string.card_view_description)),
+        Screens.ChipView(description = stringResource(id = R.string.chip_view_description))
     )
 
     // Scaffoldを使ってtopBarを表示 & innerPaddingをViewのpaddingに適応でbarと重ならないようにしている
@@ -84,6 +85,7 @@ private fun CardContent(screen: Any) {
             is Screens.ButtonView -> stringResource(id = R.string.button_view_name)
             is Screens.FloatingActionButtonView -> stringResource(id = R.string.floating_action_button_view_name)
             is Screens.CardView -> stringResource(id = R.string.card_view_name)
+            is Screens.ChipView -> stringResource(id = R.string.chip_view_name)
             else -> {"null"}
         }
 

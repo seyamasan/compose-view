@@ -27,4 +27,13 @@
     <string name="card_view_comment2">こういうの待ってた。</string>
     <string name="card_view_comment3">ラーメン食べたいなぁ〜</string>
 
+<!--    ChipView-->
+    <string name="chip_view_name">Chip View</string>
+    <string name="chip_view_description">まだ勉強中。</string>
+    <string name="assist_chip_name">Assist Chip</string>
+    <string name="filter_chip_name">Filter Chip</string>
+    <string name="input_chip_name">Input Chip</string>
+    <string name="suggestion_chip_name">Suggestion Chip</string>
+    <string name="tapped_chip_msg">をタップしました。</string>
+
 </resources>

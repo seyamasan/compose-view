@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.composeview.ButtonView
 import com.example.composeview.CardView
+import com.example.composeview.ChipView
 import com.example.composeview.FloatingActionButtonView
 import com.example.composeview.HomeView
 import javax.inject.Inject
@@ -51,6 +52,15 @@ class AppNavigatorImpl @Inject constructor(
                 CardView(
                     navController = navController,
                     description = cardView.description
+                )
+            }
+
+            // ChipのView
+            composable<Screens.ChipView> { backStackEntry ->
+                val chipView: Screens.ChipView = backStackEntry.toRoute()
+                ChipView(
+                    navController = navController,
+                    description = chipView.description
                 )
             }
         }

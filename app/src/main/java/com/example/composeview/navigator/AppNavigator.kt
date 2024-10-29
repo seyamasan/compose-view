@@ -26,4 +26,9 @@ class Screens {
     data class CardView(
         val description: String
     )
+
+    @Serializable
+    data class ChipView(
+        val description: String
+    )
 }
