@@ -93,6 +93,7 @@ fun ChipView(navController: NavHostController?, description: String) {
                 }
             )
 
+            // viewをセグメントしたい
             if (tappedAssistChip) {
                 Text(stringResource(id = R.string.chip_view_input_candidates))
 
@@ -115,7 +116,7 @@ fun ChipView(navController: NavHostController?, description: String) {
                         .padding(horizontal = 10.dp)
                 ) {
                     items(addButtonList) { name ->
-                        AddedButtonView(addButtonName = name)
+                        AddedButtonView(addButtonName = name) // 文字入力で追加したボタンを表示
                     }
                 }
 
