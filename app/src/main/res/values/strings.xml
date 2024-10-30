@@ -30,10 +30,19 @@
 <!--    ChipView-->
     <string name="chip_view_name">Chip View</string>
     <string name="chip_view_description">まだ勉強中。</string>
-    <string name="assist_chip_name">Assist Chip</string>
+    <string name="assist_chip_name">入力する</string>
+    <string name="chip_view_input_candidates">入力候補</string>
+    <string name="chip_view_text_filed_label">文字を入力</string>
+    <string name="chip_view_text_filed_placeholder">ボタンに入れたい文字を入力</string>
+    <string name="chip_view_add_button">増やす</string>
+    <string name="suggestion_chip_cat">猫</string>
+    <string name="suggestion_chip_dog">犬</string>
+    <string name="suggestion_chip_human">人</string>
+
+
     <string name="filter_chip_name">Filter Chip</string>
     <string name="input_chip_name">Input Chip</string>
-    <string name="suggestion_chip_name">Suggestion Chip</string>
+
     <string name="tapped_chip_msg">をタップしました。</string>
 
 </resources>
