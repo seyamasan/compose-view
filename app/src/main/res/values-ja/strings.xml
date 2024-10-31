@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Compose View</string>
+
+<!--    Button View-->
+    <string name="button_view_name">Button View</string>
+    <string name="button_view_description">Jetpack ComposeのButtonは5種類あります。</string>
+    <string name="button_name">Button</string>
+    <string name="filled_tonal_button_name">FilledTonalButton</string>
+    <string name="outlined_button_name">OutlinedButton</string>
+    <string name="elevated_button_name">ElevatedButton</string>
+    <string name="text_button_name">TextButton</string>
+    <string name="tapped_button_msg">をタップしました。</string>
+
+<!--    FloatingActionButtonView-->
+    <string name="floating_action_button_view_name">Floating Action Button View</string>
+    <string name="floating_action_button_view_description">Jetpack ComposeのFloatingActionButtonは4種類あります。</string>
+    <string name="fab_name">FAB</string>
+    <string name="small_fab_name">Small FAB</string>
+    <string name="large_name">Large FAB</string>
+    <string name="extended_fab">Extended FAB</string>
+
+<!--    CardView-->
+    <string name="card_view_name">Card View</string>
+    <string name="card_view_description">Cardは、UIの要素を視覚的に分離して整理するためのコンテナとして使用されます。</string>
+    <string name="card_view_comment_title">コメント</string>
+    <string name="card_view_comment1">やっぱりHIPHOP最高!</string>
+    <string name="card_view_comment2">こういうの待ってた。</string>
+    <string name="card_view_comment3">ラーメン食べたいなぁ〜</string>
+
+<!--    ChipView-->
+    <string name="chip_view_name">Chip View</string>
+    <string name="chip_view_description">Chipコンポーネントは、ユーザーインターフェースの中で情報の断片を表示し、選択やフィルタリング、アクションのトリガーを行うための便利なUI要素です。</string>
+    <string name="assist_chip_name">入力する</string>
+    <string name="chip_view_input_candidates">入力候補</string>
+    <string name="chip_view_text_filed_label">文字を入力</string>
+    <string name="chip_view_text_filed_placeholder">ボタンに入れたい文字を入力</string>
+    <string name="chip_view_added_msg">追加:</string>
+    <string name="suggestion_chip_cat">猫</string>
+    <string name="suggestion_chip_dog">犬</string>
+    <string name="suggestion_chip_people">人</string>
+    <string name="filter_chip_name">猫、犬、人をフィルター</string>
+
+    <string name="tapped_chip_msg">をタップしました。</string>
+
+</resources>

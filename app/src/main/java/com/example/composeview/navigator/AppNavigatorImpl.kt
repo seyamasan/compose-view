@@ -10,11 +10,8 @@ import com.example.composeview.CardView
 import com.example.composeview.ChipView
 import com.example.composeview.FloatingActionButtonView
 import com.example.composeview.HomeView
-import javax.inject.Inject
 
-class AppNavigatorImpl @Inject constructor(
-    private val navController: NavHostController
-) : AppNavigator {
+class AppNavigatorImpl (private val navController: NavHostController) : AppNavigator {
 
     @Composable
     override fun NavigateTo() {

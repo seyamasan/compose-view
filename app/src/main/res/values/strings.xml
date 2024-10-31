@@ -3,17 +3,17 @@
 
 <!--    Button View-->
     <string name="button_view_name">Button View</string>
-    <string name="button_view_description">Jetpack ComposeのButtonは5種類あります。</string>
+    <string name="button_view_description">There are 5 types of Buttons in Jetpack Compose.</string>
     <string name="button_name">Button</string>
     <string name="filled_tonal_button_name">FilledTonalButton</string>
     <string name="outlined_button_name">OutlinedButton</string>
     <string name="elevated_button_name">ElevatedButton</string>
     <string name="text_button_name">TextButton</string>
-    <string name="tapped_button_msg">をタップしました。</string>
+    <string name="tapped_button_msg">Tapped.</string>
 
 <!--    FloatingActionButtonView-->
     <string name="floating_action_button_view_name">Floating Action Button View</string>
-    <string name="floating_action_button_view_description">Jetpack ComposeのFloatingActionButtonは4種類あります。</string>
+    <string name="floating_action_button_view_description">Jetpack Compose has four types of FloatingActionButtons.</string>
     <string name="fab_name">FAB</string>
     <string name="small_fab_name">Small FAB</string>
     <string name="large_name">Large FAB</string>
@@ -21,28 +21,25 @@
 
 <!--    CardView-->
     <string name="card_view_name">Card View</string>
-    <string name="card_view_description">Cardは、UIの要素を視覚的に分離して整理するためのコンテナとして使用されます。</string>
-    <string name="card_view_comment_title">コメント</string>
-    <string name="card_view_comment1">やっぱりHIPHOP最高!</string>
-    <string name="card_view_comment2">こういうの待ってた。</string>
-    <string name="card_view_comment3">ラーメン食べたいなぁ〜</string>
+    <string name="card_view_description">Cards are used as containers to visually separate and organize elements in your UI.</string>
+    <string name="card_view_comment_title">Comment</string>
+    <string name="card_view_comment1">HIPHOP is the best!</string>
+    <string name="card_view_comment2">I was waiting for this.</string>
+    <string name="card_view_comment3">I want to eat ramen~</string>
 
 <!--    ChipView-->
     <string name="chip_view_name">Chip View</string>
-    <string name="chip_view_description">まだ勉強中。</string>
-    <string name="assist_chip_name">入力する</string>
-    <string name="chip_view_input_candidates">入力候補</string>
-    <string name="chip_view_text_filed_label">文字を入力</string>
-    <string name="chip_view_text_filed_placeholder">ボタンに入れたい文字を入力</string>
-    <string name="chip_view_add_button">増やす</string>
-    <string name="suggestion_chip_cat">猫</string>
-    <string name="suggestion_chip_dog">犬</string>
-    <string name="suggestion_chip_human">人</string>
+    <string name="chip_view_description">The Chip Component is a convenient UI element for displaying pieces of information in a user interface, allowing selection, filtering, and triggering actions.</string>
+    <string name="assist_chip_name">Input</string>
+    <string name="chip_view_input_candidates">Input suggestions</string>
+    <string name="chip_view_text_filed_label">Enter text</string>
+    <string name="chip_view_text_filed_placeholder">Enter the characters you want to put on the button</string>
+    <string name="chip_view_added_msg">addition:</string>
+    <string name="suggestion_chip_cat">Cat</string>
+    <string name="suggestion_chip_dog">Dog</string>
+    <string name="suggestion_chip_people">People</string>
+    <string name="filter_chip_name">Filter Cats, Dogs, and People</string>
 
-
-    <string name="filter_chip_name">Filter Chip</string>
-    <string name="input_chip_name">Input Chip</string>
-
-    <string name="tapped_chip_msg">をタップしました。</string>
+    <string name="tapped_chip_msg">Tapped</string>
 
 </resources>

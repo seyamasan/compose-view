@@ -9,14 +9,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,7 +25,6 @@ import androidx.navigation.NavHostController
 import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
     val screenList = listOf(
@@ -42,13 +38,7 @@ fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(id = R.string.app_name)) },
-                colors = topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                )
-            )
+            TopBarView(navController, stringResource(id = R.string.app_name), false)
         }
     ) { innerPadding ->
         LazyColumn(
