@@ -1,1 +1,1 @@
-Jetpack ComposeでView作成とDIの勉強用リポジトリ
+Jetpack ComposeだけでViewを作る勉強用リポジトリ
