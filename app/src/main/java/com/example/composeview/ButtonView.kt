@@ -86,7 +86,9 @@ fun ButtonView(navController: NavHostController?, description: String) {
                         modifier = Modifier.padding(vertical = 4.dp)
                     ) {
                         Row(
-                            modifier = Modifier.padding(12.dp).fillMaxWidth()
+                            modifier = Modifier
+                                .padding(12.dp)
+                                .fillMaxWidth()
                         ) {
                             Text(text = name, modifier = Modifier.weight(1f))
                             buttonContent(name) {

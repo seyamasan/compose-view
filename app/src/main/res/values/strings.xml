@@ -40,6 +40,17 @@
     <string name="suggestion_chip_people">People</string>
     <string name="filter_chip_name">Filter Cats, Dogs, and People</string>
 
-    <string name="tapped_chip_msg">Tapped</string>
+<!--    DialogView-->
+    <string name="dialog_view_name">Dialog View</string>
+    <string name="dialog_view_description">Dialog is used as a UI experience to grab the user attention.</string>
+    <string name="dialog_view_alert_dialog_button">Alert Dialog</string>
+    <string name="dialog_view_dialog_button">Dialog</string>
+    <string name="dialog_view_dialog_with_image_button">Dialog With Image</string>
+    <string name="dialog_view_alert_dialog_title">This is an alert dialog.</string>
+    <string name="dialog_view_alert_dialog_msg">Tap Confirm or Dismiss to close.</string>
+    <string name="dialog_view_dialog_confirm_button">Confirm</string>
+    <string name="dialog_view_dialog_dismiss_button">Dismiss</string>
+    <string name="dialog_view_minimal_dialog_msg">This is an minimal dialog.</string>
+    <string name="dialog_view_dialog_with_image_dialog_msg">This is a dialog with an image.</string>
 
 </resources>

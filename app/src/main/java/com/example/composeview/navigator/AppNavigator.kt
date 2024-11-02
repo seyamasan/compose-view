@@ -31,4 +31,9 @@ class Screens {
     data class ChipView(
         val description: String
     )
+
+    @Serializable
+    data class DialogView(
+        val description: String
+    )
 }

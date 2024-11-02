@@ -8,6 +8,7 @@ import androidx.navigation.toRoute
 import com.example.composeview.ButtonView
 import com.example.composeview.CardView
 import com.example.composeview.ChipView
+import com.example.composeview.DialogView
 import com.example.composeview.FloatingActionButtonView
 import com.example.composeview.HomeView
 
@@ -58,6 +59,15 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 ChipView(
                     navController = navController,
                     description = chipView.description
+                )
+            }
+
+            // DialogのView
+            composable<Screens.DialogView> { backStackEntry ->
+                val dialogView: Screens.DialogView = backStackEntry.toRoute()
+                DialogView(
+                    navController = navController,
+                    description = dialogView.description
                 )
             }
         }

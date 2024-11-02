@@ -40,6 +40,17 @@
     <string name="suggestion_chip_people">人</string>
     <string name="filter_chip_name">猫、犬、人をフィルター</string>
 
-    <string name="tapped_chip_msg">をタップしました。</string>
+<!--    DialogView-->
+    <string name="dialog_view_name">Dialog View</string>
+    <string name="dialog_view_description">Dialogは、ユーザーの注意を引くためのUIエクスペリエンスとして使用されます。</string>
+    <string name="dialog_view_alert_dialog_button">Alert Dialog</string>
+    <string name="dialog_view_dialog_button">Dialog</string>
+    <string name="dialog_view_dialog_with_image_button">Dialog With Image</string>
+    <string name="dialog_view_alert_dialog_title">アラートダイアログです</string>
+    <string name="dialog_view_alert_dialog_msg">確認または却下をタップして閉じてください。</string>
+    <string name="dialog_view_dialog_confirm_button">確認</string>
+    <string name="dialog_view_dialog_dismiss_button">却下</string>
+    <string name="dialog_view_minimal_dialog_msg">最小限のダイアログです。</string>
+    <string name="dialog_view_dialog_with_image_dialog_msg">画像付きダイアログです。</string>
 
 </resources>
