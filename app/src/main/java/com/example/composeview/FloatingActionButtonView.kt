@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.ui.theme.ComposeViewTheme
 import com.example.composeview.utils.SnackbarUtils
+import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun FloatingActionButtonView(navController: NavHostController?, description: String) {
@@ -61,69 +62,14 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)
         },
-        floatingActionButton = {
-            when (selectedIndex) {
-                0 -> {
-                    // 普通のFAB
-                    FloatingActionButton(
-                        onClick = {
-                            SnackbarUtils.showSnackbar(
-                                scope = scope,
-                                snackbarHostState = snackbarHostState,
-                                message = buttonNameList[0] + messageEnding
-                            )
-                        },
-//                        containerColor = Color.Magenta, // ボタンの背景色を変更できる
-//                        contentColor = Color.LightGray, // ボタンの中の要素の色帰ることができる
-//                        shape = CircleShape // 角丸にできる
-                    ) {
-                        Icon(Icons.Filled.Edit, "Floating ActionButton")
-                    }
-                }
-                1 -> {
-                    // 小さいのFAB
-                    SmallFloatingActionButton(
-                        onClick = {
-                            SnackbarUtils.showSnackbar(
-                                scope = scope,
-                                snackbarHostState = snackbarHostState,
-                                message = buttonNameList[1] + messageEnding
-                            )
-                        }
-                    ) {
-                        Icon(Icons.Filled.Edit, "Small floating action button.")
-                    }
-                }
-                2 -> {
-                    // 大きいFAB
-                    LargeFloatingActionButton(
-                        onClick = {
-                            SnackbarUtils.showSnackbar(
-                                scope = scope,
-                                snackbarHostState = snackbarHostState,
-                                message = buttonNameList[2] + messageEnding
-                            )
-                        }
-                    ) {
-                        Icon(Icons.Filled.Edit, "Large floating action button")
-                    }
-                }
-                3 -> {
-                    // 拡張FAB
-                    ExtendedFloatingActionButton(
-                        onClick = {
-                            SnackbarUtils.showSnackbar(
-                                scope = scope,
-                                snackbarHostState = snackbarHostState,
-                                message = buttonNameList[3] + messageEnding
-                            )
-                        },
-                        icon = { Icon(Icons.Filled.Edit, contentDescription = "Extended Floating ActionButton") },
-                        text = { Text(stringResource(id = R.string.extended_fab)) }
-                    )
-                }
-            }
-
+        floatingActionButton = { // Scaffoldに入れることで画面右下に配置される
+            FloatingActionButtonItem(
+                selectedIndex = selectedIndex,
+                buttonNameList = buttonNameList,
+                messageEnding = messageEnding,
+                scope = scope,
+                snackbarHostState = snackbarHostState
+            )
         }
     ) { innerPadding ->
         Column(
@@ -135,8 +81,7 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
             Text(text = description)
 
             LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
                 itemsIndexed(buttonNameList) { index, name ->
@@ -145,14 +90,57 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
                             selectedIndex = index
                         }
                     ) {
-                        Text(
-                            text = name
-                        )
+                        Text(text = name)
                     }
-
                     Spacer(modifier = Modifier.width(16.dp))
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun FloatingActionButtonItem(
+    selectedIndex: Int,
+    buttonNameList: List<String>,
+    messageEnding: String,
+    scope: CoroutineScope,
+    snackbarHostState: SnackbarHostState
+) {
+    val onClick: () -> Unit = {
+        SnackbarUtils.showSnackbar(
+            scope = scope,
+            snackbarHostState = snackbarHostState,
+            message = buttonNameList[selectedIndex] + messageEnding
+        )
+    }
+
+    when (selectedIndex) {
+        0 -> {
+            // 普通のFAB
+            FloatingActionButton(onClick = onClick) {
+                Icon(Icons.Filled.Edit, "Floating ActionButton")
+            }
+        }
+        1 -> {
+            // 小さいFAB
+            SmallFloatingActionButton(onClick = onClick) {
+                Icon(Icons.Filled.Edit, "Small floating action button.")
+            }
+        }
+        2 -> {
+            // 大きいFAB
+            LargeFloatingActionButton(onClick = onClick) {
+                Icon(Icons.Filled.Edit, "Large floating action button")
+            }
+        }
+        3 -> {
+            // 拡張FAB
+            ExtendedFloatingActionButton(
+                onClick = onClick,
+                icon = { Icon(Icons.Filled.Edit, contentDescription = "Extended Floating ActionButton") },
+                text = { Text(stringResource(id = R.string.extended_fab)) }
+            )
         }
     }
 }

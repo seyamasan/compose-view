@@ -40,6 +40,16 @@ fun ButtonView(navController: NavHostController?, description: String) {
         stringResource(id = R.string.elevated_button_name),
         stringResource(id = R.string.text_button_name)
     )
+
+    // ５種類のボタン
+    val buttonTypes: List<@Composable (String, () -> Unit) -> Unit> = listOf(
+        { name, onClick -> Button(onClick = onClick) { Text(name) } }, // 塗りつぶしのボタン
+        { name, onClick -> FilledTonalButton(onClick = onClick) { Text(name) } }, // 塗りつぶしのメインの色より薄い？ボタン
+        { name, onClick -> OutlinedButton(onClick = onClick) { Text(name) } }, // 枠線付きボタン
+        { name, onClick -> ElevatedButton(onClick = onClick) { Text(name) } }, // 立体ボタン
+        { name, onClick -> TextButton(onClick = onClick) { Text(name) } } // テキストボタン
+    )
+
     val scope = rememberCoroutineScope() // コルーチンスコープ
     val snackbarHostState = remember { SnackbarHostState() } // スナックバー
 
@@ -67,6 +77,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
             ) {
                 itemsIndexed(buttonNameList) { index, name ->
                     val message = name + stringResource(id = R.string.tapped_button_msg)
+                    val buttonContent = buttonTypes[index]
 
                     Card(
                         colors = CardDefaults.cardColors(
@@ -74,102 +85,12 @@ fun ButtonView(navController: NavHostController?, description: String) {
                         ),
                         modifier = Modifier.padding(vertical = 4.dp)
                     ) {
-                        Row (
-                            modifier = Modifier
-                                .padding(12.dp)
-                                .fillMaxWidth()
-                        )  {
-                            Text(
-                                text = name,
-                                modifier = Modifier.weight(1f)
-                            )
-                            when(index) {
-                                0 -> {
-                                    // 塗りつぶしのボタン
-                                    Button(
-                                        onClick = {
-                                            SnackbarUtils.showSnackbar(
-                                                scope = scope,
-                                                snackbarHostState = snackbarHostState,
-                                                message = message
-                                            )
-                                        },
-//                                        enabled = false, // 活性/非活性を制御できる
-//                                        colors = ButtonDefaults.buttonColors(
-//                                            containerColor = Color.Red,
-//                                            contentColor = Color.Black
-//                                        ), // ボタンの色を変えることができる
-//                                        contentPadding = PaddingValues(32.dp) // ボタン内のpadding値を設定できる
-                                    ) {
-                                        Text(
-                                            text = name
-                                        )
-                                    }
-                                }
-                                // 塗りつぶしのメインの色より薄い？ボタン
-                                1 -> {
-                                    FilledTonalButton(
-                                        onClick = {
-                                            SnackbarUtils.showSnackbar(
-                                                scope = scope,
-                                                snackbarHostState = snackbarHostState,
-                                                message = message
-                                            )
-                                        }
-                                    ) {
-                                        Text(
-                                            text = name
-                                        )
-                                    }
-                                }
-                                // 枠線付きボタン
-                                2 -> {
-                                    OutlinedButton(
-                                        onClick = {
-                                            SnackbarUtils.showSnackbar(
-                                                scope = scope,
-                                                snackbarHostState = snackbarHostState,
-                                                message = message
-                                            )
-                                        }
-                                    ) {
-                                        Text(
-                                            text = name
-                                        )
-                                    }
-                                }
-                                // 立体ボタン
-                                3 -> {
-                                    ElevatedButton(
-                                        onClick = {
-                                            SnackbarUtils.showSnackbar(
-                                                scope = scope,
-                                                snackbarHostState = snackbarHostState,
-                                                message = message
-                                            )
-                                        }
-                                    ) {
-                                        Text(
-                                            text = name
-                                        )
-                                    }
-                                }
-                                // テキストボタン
-                                4 -> {
-                                    TextButton(
-                                        onClick = {
-                                            SnackbarUtils.showSnackbar(
-                                                scope = scope,
-                                                snackbarHostState = snackbarHostState,
-                                                message = message
-                                            )
-                                        }
-                                    ) {
-                                        Text(
-                                            text = name
-                                        )
-                                    }
-                                }
+                        Row(
+                            modifier = Modifier.padding(12.dp).fillMaxWidth()
+                        ) {
+                            Text(text = name, modifier = Modifier.weight(1f))
+                            buttonContent(name) {
+                                SnackbarUtils.showSnackbar(scope, snackbarHostState, message)
                             }
                         }
                     }
