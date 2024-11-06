@@ -1,5 +1,6 @@
 package com.example.composeview.navigator
 
+import androidx.compose.material3.Slider
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -12,6 +13,7 @@ import com.example.composeview.ui.DialogView
 import com.example.composeview.ui.FloatingActionButtonView
 import com.example.composeview.ui.HomeView
 import com.example.composeview.ui.IndicatorView
+import com.example.composeview.ui.SliderView
 
 class AppNavigatorImpl (private val navController: NavHostController) : AppNavigator {
 
@@ -78,6 +80,15 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 IndicatorView(
                     navController = navController,
                     description = indicatorView.description
+                )
+            }
+
+            // SliderのView
+            composable<Screens.SliderView> { backStackEntry ->
+                val sliderView: Screens.SliderView = backStackEntry.toRoute()
+                SliderView(
+                    navController = navController,
+                    description = sliderView.description
                 )
             }
         }

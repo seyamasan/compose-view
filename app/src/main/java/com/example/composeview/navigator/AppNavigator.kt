@@ -41,4 +41,9 @@ class Screens {
     data class IndicatorView(
         val description: String
     )
+
+    @Serializable
+    data class SliderView(
+        val description: String
+    )
 }

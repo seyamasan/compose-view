@@ -61,4 +61,8 @@
     <string name="indeterminate_linear_indicator_button">Start Linear Progress Bar 2</string>
     <string name="indeterminate_circular_indicator_button">Start Circular Progress Bar 2</string>
 
+    <!--    SliderView-->
+    <string name="slider_view_name">Slider View</string>
+    <string name="slider_view_description">Use a Slider to allow the user to adjust the values. It is used when adjusting values within a range, such as volume and brightness.</string>
+
 </resources>

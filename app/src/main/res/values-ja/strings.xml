@@ -61,4 +61,8 @@
     <string name="indeterminate_linear_indicator_button">線形プログレスバー2をスタート</string>
     <string name="indeterminate_circular_indicator_button">円形プログレスバー2をスタート</string>
 
+<!--    SliderView-->
+    <string name="slider_view_name">Slider View</string>
+    <string name="slider_view_description">Sliderを使用して、ユーザーが値を調整できるようにします。音量や明るさなど、範囲内の値を調整するときなどに使用されています。</string>
+
 </resources>
