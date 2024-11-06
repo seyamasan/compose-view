@@ -53,4 +53,12 @@
     <string name="dialog_view_minimal_dialog_msg">最小限のダイアログです。</string>
     <string name="dialog_view_dialog_with_image_dialog_msg">画像付きダイアログです。</string>
 
+<!--    IndicatorView-->
+    <string name="indicator_view_name">Indicator View</string>
+    <string name="indicator_view_description">インジケーターは、処理のステータスを視覚的に表示するために使用されます。処理がどの程度完了しそうなのか、ユーザーの注意を引きつけることができます。</string>
+    <string name="linear_determinate_indicator_button">線形プログレスバー1をスタート</string>
+    <string name="circular_determinate_indicator_button">円形プログレスバー1をスタート</string>
+    <string name="indeterminate_linear_indicator_button">線形プログレスバー2をスタート</string>
+    <string name="indeterminate_circular_indicator_button">円形プログレスバー2をスタート</string>
+
 </resources>

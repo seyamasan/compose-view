@@ -1,4 +1,4 @@
-package com.example.composeview
+package com.example.composeview.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -41,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavHostController
+import com.example.composeview.R
 import com.example.composeview.ui.theme.ComposeViewTheme
 
 private enum class DialogType { ALERT, MINIMAL, IMAGE }

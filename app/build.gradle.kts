@@ -78,4 +78,7 @@ dependencies {
 
     // serialization
     implementation(libs.kotlinx.serialization.core)
+
+    // lifecycle-viewmodel-compose
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

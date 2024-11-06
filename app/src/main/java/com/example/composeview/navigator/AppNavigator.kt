@@ -36,4 +36,9 @@ class Screens {
     data class DialogView(
         val description: String
     )
+
+    @Serializable
+    data class IndicatorView(
+        val description: String
+    )
 }

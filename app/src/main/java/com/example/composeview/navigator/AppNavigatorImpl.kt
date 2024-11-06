@@ -5,12 +5,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.composeview.ButtonView
-import com.example.composeview.CardView
-import com.example.composeview.ChipView
-import com.example.composeview.DialogView
-import com.example.composeview.FloatingActionButtonView
-import com.example.composeview.HomeView
+import com.example.composeview.ui.ButtonView
+import com.example.composeview.ui.CardView
+import com.example.composeview.ui.ChipView
+import com.example.composeview.ui.DialogView
+import com.example.composeview.ui.FloatingActionButtonView
+import com.example.composeview.ui.HomeView
+import com.example.composeview.ui.IndicatorView
 
 class AppNavigatorImpl (private val navController: NavHostController) : AppNavigator {
 
@@ -68,6 +69,15 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 DialogView(
                     navController = navController,
                     description = dialogView.description
+                )
+            }
+
+            // IndicatorのView
+            composable<Screens.IndicatorView> { backStackEntry ->
+                val indicatorView: Screens.IndicatorView = backStackEntry.toRoute()
+                IndicatorView(
+                    navController = navController,
+                    description = indicatorView.description
                 )
             }
         }

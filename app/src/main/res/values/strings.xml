@@ -53,4 +53,12 @@
     <string name="dialog_view_minimal_dialog_msg">This is an minimal dialog.</string>
     <string name="dialog_view_dialog_with_image_dialog_msg">This is a dialog with an image.</string>
 
+<!--    IndicatorView-->
+    <string name="indicator_view_name">Indicator View</string>
+    <string name="indicator_view_description">Indicators are used to visually display the status of processing. It can draw the user’s attention to how close the process is to completion.</string>
+    <string name="linear_determinate_indicator_button">Start Linear Progress Bar 1</string>
+    <string name="circular_determinate_indicator_button">Start Circular Progress Bar 1</string>
+    <string name="indeterminate_linear_indicator_button">Start Linear Progress Bar 2</string>
+    <string name="indeterminate_circular_indicator_button">Start Circular Progress Bar 2</string>
+
 </resources>

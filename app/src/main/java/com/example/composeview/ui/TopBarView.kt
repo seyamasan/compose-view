@@ -1,4 +1,4 @@
-package com.example.composeview
+package com.example.composeview.ui
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft

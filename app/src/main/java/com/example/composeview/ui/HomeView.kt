@@ -1,4 +1,4 @@
-package com.example.composeview
+package com.example.composeview.ui
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.composeview.R
 import com.example.composeview.navigator.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
 
@@ -32,7 +33,8 @@ fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
         Screens.FloatingActionButtonView(description = stringResource(id = R.string.floating_action_button_view_description)),
         Screens.CardView(description = stringResource(id = R.string.card_view_description)),
         Screens.ChipView(description = stringResource(id = R.string.chip_view_description)),
-        Screens.DialogView(description = stringResource(id = R.string.dialog_view_description))
+        Screens.DialogView(description = stringResource(id = R.string.dialog_view_description)),
+        Screens.IndicatorView(description = stringResource(id = R.string.indicator_view_description))
     )
 
     // Scaffoldを使ってtopBarを表示 & innerPaddingをViewのpaddingに適応でbarと重ならないようにしている
@@ -78,6 +80,7 @@ private fun CardContent(screen: Any) {
             is Screens.CardView -> stringResource(id = R.string.card_view_name)
             is Screens.ChipView -> stringResource(id = R.string.chip_view_name)
             is Screens.DialogView -> stringResource(id = R.string.dialog_view_name)
+            is Screens.IndicatorView -> stringResource(id = R.string.indicator_view_name)
             else -> {"null"}
         }
 
