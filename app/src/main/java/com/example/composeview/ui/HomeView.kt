@@ -35,7 +35,9 @@ fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
         Screens.ChipView(description = stringResource(id = R.string.chip_view_description)),
         Screens.DialogView(description = stringResource(id = R.string.dialog_view_description)),
         Screens.IndicatorView(description = stringResource(id = R.string.indicator_view_description)),
-        Screens.SliderView(description = stringResource(id = R.string.slider_view_description))
+        Screens.SliderView(description = stringResource(id = R.string.slider_view_description)),
+        Screens.SwitchView(description = stringResource(id = R.string.switch_view_description)),
+        Screens.CheckboxView(description = stringResource(id = R.string.checkbox_view_description))
     )
 
     // Scaffoldを使ってtopBarを表示 & innerPaddingをViewのpaddingに適応でbarと重ならないようにしている
@@ -83,6 +85,8 @@ private fun CardContent(screen: Any) {
             is Screens.DialogView -> stringResource(id = R.string.dialog_view_name)
             is Screens.IndicatorView -> stringResource(id = R.string.indicator_view_name)
             is Screens.SliderView -> stringResource(id = R.string.slider_view_name)
+            is Screens.SwitchView -> stringResource(id = R.string.switch_view_name)
+            is Screens.CheckboxView -> stringResource(id = R.string.checkbox_view_name)
             else -> {"null"}
         }
 

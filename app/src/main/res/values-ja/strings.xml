@@ -65,4 +65,17 @@
     <string name="slider_view_name">Slider View</string>
     <string name="slider_view_description">Sliderを使用して、ユーザーが値を調整できるようにします。音量や明るさなど、範囲内の値を調整するときなどに使用されています。</string>
 
+<!--    SwitchView-->
+    <string name="switch_view_name">Switch View</string>
+    <string name="switch_view_description">Switchを使用して、ユーザーはオン/オフの状態を切り替えることができます。</string>
+
+<!--    CheckboxView-->
+    <string name="checkbox_view_name">Checkbox View</string>
+    <string name="checkbox_view_description">Checkboxは、同意するかしないか、アイテムをオンまたはオフにするときなどに使用されます。</string>
+    <string name="minimal_checkbox_name">チェックボックス</string>
+    <string name="checkbox_is_checked">チェックされました。</string>
+    <string name="checkbox_is_uncheck">チェックされていません。</string>
+    <string name="select_all_checkbox_name">全て選択</string>
+    <string name="option_checkbox_name">オプション</string>
+
 </resources>

@@ -46,4 +46,14 @@ class Screens {
     data class SliderView(
         val description: String
     )
+
+    @Serializable
+    data class SwitchView(
+        val description: String
+    )
+
+    @Serializable
+    data class CheckboxView(
+        val description: String
+    )
 }

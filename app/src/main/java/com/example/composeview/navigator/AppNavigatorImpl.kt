@@ -8,12 +8,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.composeview.ui.ButtonView
 import com.example.composeview.ui.CardView
+import com.example.composeview.ui.CheckboxView
 import com.example.composeview.ui.ChipView
 import com.example.composeview.ui.DialogView
 import com.example.composeview.ui.FloatingActionButtonView
 import com.example.composeview.ui.HomeView
 import com.example.composeview.ui.IndicatorView
 import com.example.composeview.ui.SliderView
+import com.example.composeview.ui.SwitchView
 
 class AppNavigatorImpl (private val navController: NavHostController) : AppNavigator {
 
@@ -89,6 +91,24 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 SliderView(
                     navController = navController,
                     description = sliderView.description
+                )
+            }
+
+            // SwitchのView
+            composable<Screens.SwitchView> { backStackEntry ->
+                val switchView: Screens.SwitchView = backStackEntry.toRoute()
+                SwitchView(
+                    navController = navController,
+                    description = switchView.description
+                )
+            }
+
+            // CheckboxのView
+            composable<Screens.CheckboxView> { backStackEntry ->
+                val checkboxView: Screens.CheckboxView = backStackEntry.toRoute()
+                CheckboxView(
+                    navController = navController,
+                    description = checkboxView.description
                 )
             }
         }
