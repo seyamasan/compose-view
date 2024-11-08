@@ -55,7 +55,7 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 import com.example.composeview.utils.SnackbarUtils
 
 @Composable
-fun ChipView(navController: NavHostController?, description: String) {
+fun ChipView(navController: NavHostController?, viewName: String, description: String) {
     var tappedAssistChip by rememberSaveable { mutableStateOf(false) }
     var inputText by rememberSaveable { mutableStateOf("") }  // 入力したテキストの状態を保持
     var addButtonList by rememberSaveable { mutableStateOf(listOf<String>()) }
@@ -75,7 +75,7 @@ fun ChipView(navController: NavHostController?, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.chip_view_name), true)
+            TopBarView(navController, viewName, true)
         },
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)
@@ -299,6 +299,10 @@ private fun ChipTextFieldView(
 @Composable
 fun ChipViewPreview() {
     ComposeViewTheme {
-        ChipView(null, description = stringResource(id = R.string.chip_view_description))
+        ChipView(
+            null,
+            viewName = stringResource(id = R.string.chip_view_name),
+            description = stringResource(id = R.string.chip_view_description)
+        )
     }
 }

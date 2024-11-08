@@ -33,7 +33,7 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 import com.example.composeview.utils.SnackbarUtils
 
 @Composable
-fun ButtonView(navController: NavHostController?, description: String) {
+fun ButtonView(navController: NavHostController?, viewName: String, description: String) {
     val buttonNameList = listOf(
         stringResource(id = R.string.button_name),
         stringResource(id = R.string.filled_tonal_button_name),
@@ -57,7 +57,7 @@ fun ButtonView(navController: NavHostController?, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.button_view_name), true)
+            TopBarView(navController, viewName, true)
         },
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)
@@ -107,6 +107,10 @@ fun ButtonView(navController: NavHostController?, description: String) {
 @Composable
 fun ButtonViewPreview() {
     ComposeViewTheme {
-        ButtonView(null, description = stringResource(id = R.string.button_view_description))
+        ButtonView(
+            null,
+            viewName = stringResource(id = R.string.button_view_name),
+            description = stringResource(id = R.string.button_view_description)
+        )
     }
 }

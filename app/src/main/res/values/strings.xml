@@ -78,4 +78,18 @@
     <string name="select_all_checkbox_name">Select all</string>
     <string name="option_checkbox_name">Option</string>
 
+<!--    BudgeBoxView-->
+    <string name="budge_box_view_name">Budge Box View</string>
+    <string name="budge_box_view_description">BudgeBox displays a small visual indicator to show your status, such as the number of emails you have.</string>
+    <string name="budge_box_view_add_item">Add item</string>
+
+<!--    BottomSheetView-->
+    <string name="bottom_sheet_view_name">Bottom Sheet View</string>
+    <string name="bottom_sheet_view_description">The BottomSheet displays the sheet from bottom to top.</string>
+    <string name="show_bottom_sheet">Show bottom sheet</string>
+
+<!--    NavigationDrawerView-->
+    <string name="navigation_drawer_view_name">Navigation Drawer View</string>
+    <string name="navigation_drawer_view_description">I’m currently studying.</string>
+
 </resources>

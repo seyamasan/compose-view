@@ -38,6 +38,7 @@ import com.example.composeview.viewModel.IndicatorViewModel
 @Composable
 fun IndicatorView(
     navController: NavHostController?,
+    viewName: String,
     description: String,
     indicatorViewModel: IndicatorViewModel = viewModel()
 ) {
@@ -47,7 +48,7 @@ fun IndicatorView(
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.indicator_view_name), true)
+            TopBarView(navController, viewName, true)
         }
     ) { innerPadding ->
         Column(
@@ -206,6 +207,10 @@ private fun IndeterminateCircularIndicator(
 @Composable
 fun IndicatorViewPreview() {
     ComposeViewTheme {
-        IndicatorView(null, description = stringResource(id = R.string.indicator_view_description))
+        IndicatorView(
+            null,
+            viewName = stringResource(id = R.string.indicator_view_name),
+            description = stringResource(id = R.string.indicator_view_description)
+        )
     }
 }

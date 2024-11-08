@@ -28,7 +28,7 @@ import com.example.composeview.R
 import com.example.composeview.ui.theme.ComposeViewTheme
 
 @Composable
-fun SwitchView(navController: NavHostController?, description: String) {
+fun SwitchView(navController: NavHostController?, viewName: String, description: String) {
     var checkedSwitchMinimalExample by rememberSaveable { mutableStateOf(false) }
     var checkedSwitchWithIconExample by rememberSaveable { mutableStateOf(false) }
     var checkedSwitchWithCustomColors by rememberSaveable { mutableStateOf(false) }
@@ -36,7 +36,7 @@ fun SwitchView(navController: NavHostController?, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.switch_view_name), true)
+            TopBarView(navController, viewName, true)
         }
     ) { innerPadding ->
         Column(
@@ -119,6 +119,10 @@ private fun SwitchWithCustomColors(checked: Boolean, onChecked : (Boolean) -> Un
 @Composable
 fun SwitchViewPreview() {
     ComposeViewTheme {
-        SwitchView(null, description = stringResource(id = R.string.switch_view_description))
+        SwitchView(
+            null,
+            viewName = stringResource(id = R.string.switch_view_name),
+            description = stringResource(id = R.string.switch_view_description)
+        )
     }
 }

@@ -47,7 +47,7 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 private enum class DialogType { ALERT, MINIMAL, IMAGE }
 
 @Composable
-fun DialogView(navController: NavHostController?, description: String) {
+fun DialogView(navController: NavHostController?, viewName: String, description: String) {
 
     var openDialogType by rememberSaveable { mutableStateOf<DialogType?>(null) } // ONの時はType、OFFの時はnull
 
@@ -60,7 +60,7 @@ fun DialogView(navController: NavHostController?, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.dialog_view_name), true)
+            TopBarView(navController, viewName, true)
         }
     ) { innerPadding ->
         Column(
@@ -236,6 +236,10 @@ private fun DialogWithImage(
 @Composable
 fun DialogViewPreview() {
     ComposeViewTheme {
-        DialogView(null, description = stringResource(id = R.string.dialog_view_description))
+        DialogView(
+            null,
+            viewName = stringResource(id = R.string.dialog_view_name),
+            description = stringResource(id = R.string.dialog_view_description)
+        )
     }
 }

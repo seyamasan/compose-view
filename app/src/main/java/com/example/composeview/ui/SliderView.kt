@@ -31,6 +31,7 @@ import com.example.composeview.viewModel.SliderViewModel
 @Composable
 fun SliderView(
     navController: NavHostController?,
+    viewName: String,
     description: String,
     sliderViewModel: SliderViewModel = viewModel()
 ) {
@@ -42,7 +43,7 @@ fun SliderView(
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.slider_view_name), true)
+            TopBarView(navController, viewName, true)
         }
     ) { innerPadding ->
         Column(
@@ -134,6 +135,10 @@ private fun RangeSliderExample(
 @Composable
 fun SliderViewPreview() {
     ComposeViewTheme {
-        SliderView(null, description = stringResource(id = R.string.slider_view_description))
+        SliderView(
+            null, 
+            viewName = stringResource(id = R.string.slider_view_name),
+            description = stringResource(id = R.string.slider_view_description)
+        )
     }
 }

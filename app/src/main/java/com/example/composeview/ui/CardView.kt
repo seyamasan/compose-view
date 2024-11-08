@@ -35,11 +35,11 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 enum class CardType { Default, Elevated, Outlined }
 
 @Composable
-fun CardView(navController: NavHostController?, description: String) {
+fun CardView(navController: NavHostController?, viewName: String, description: String) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.card_view_name), true)
+            TopBarView(navController, viewName, true)
         }
     ) { innerPadding ->
         Column(
@@ -134,6 +134,10 @@ private fun CardViewCardItem(type: CardType, title: String, comment: String, cou
 @Composable
 fun CardViewPreview() {
     ComposeViewTheme {
-        CardView(null, description = stringResource(id = R.string.card_view_description))
+        CardView(
+            null,
+            viewName = stringResource(id = R.string.card_view_name),
+            description = stringResource(id = R.string.card_view_description)
+        )
     }
 }

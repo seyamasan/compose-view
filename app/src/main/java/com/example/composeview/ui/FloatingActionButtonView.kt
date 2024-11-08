@@ -39,7 +39,7 @@ import com.example.composeview.utils.SnackbarUtils
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
-fun FloatingActionButtonView(navController: NavHostController?, description: String) {
+fun FloatingActionButtonView(navController: NavHostController?, viewName: String, description: String) {
     val buttonNameList = listOf(
         stringResource(id = R.string.fab_name),
         stringResource(id = R.string.small_fab_name),
@@ -54,11 +54,7 @@ fun FloatingActionButtonView(navController: NavHostController?, description: Str
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(
-                navController,
-                stringResource(id = R.string.floating_action_button_view_name),
-                true
-            )
+            TopBarView(navController, viewName, true)
         },
         snackbarHost = {
             SnackbarHost(hostState = snackbarHostState)
@@ -150,6 +146,10 @@ private fun FloatingActionButtonItem(
 @Composable
 fun FloatingActionButtonViewPreview() {
     ComposeViewTheme {
-        FloatingActionButtonView(null, description = stringResource(id = R.string.floating_action_button_view_description))
+        FloatingActionButtonView(
+            null,
+            viewName = stringResource(id = R.string.floating_action_button_view_name),
+            description = stringResource(id = R.string.floating_action_button_view_description)
+        )
     }
 }

@@ -78,4 +78,18 @@
     <string name="select_all_checkbox_name">全て選択</string>
     <string name="option_checkbox_name">オプション</string>
 
+<!--    BudgeBoxView-->
+    <string name="budge_box_view_name">Budge Box View</string>
+    <string name="budge_box_view_description">BudgeBoxは、ステータスを示す小さな視覚要素を表示します。メールの件数などを小さく表示されていたりします。</string>
+    <string name="budge_box_view_add_item">商品を追加</string>
+
+<!--    BottomSheetView-->
+    <string name="bottom_sheet_view_name">Bottom Sheet View</string>
+    <string name="bottom_sheet_view_description">BottomSheetは、下から上にシートが表示されます。</string>
+    <string name="show_bottom_sheet">ボトムシートを表示</string>
+
+<!--    NavigationDrawerView-->
+    <string name="navigation_drawer_view_name">Navigation Drawer View</string>
+    <string name="navigation_drawer_view_description">勉強中。</string>
+
 </resources>

@@ -34,6 +34,7 @@ import com.example.composeview.viewModel.CheckboxViewModel
 @Composable
 fun CheckboxView(
     navController: NavHostController?,
+    viewName: String,
     description: String,
     checkboxViewModel: CheckboxViewModel = viewModel()
 ) {
@@ -44,7 +45,7 @@ fun CheckboxView(
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
-            TopBarView(navController, stringResource(id = R.string.checkbox_view_name), true)
+            TopBarView(navController, viewName, true)
         }
     ) { innerPadding ->
         Column(
@@ -154,6 +155,10 @@ private fun CheckboxParentExample(
 @Composable
 fun CheckboxViewPreview() {
     ComposeViewTheme {
-        CheckboxView(null, description = stringResource(id = R.string.checkbox_view_description))
+        CheckboxView(
+            null,
+            viewName = stringResource(id = R.string.checkbox_view_name),
+            description = stringResource(id = R.string.checkbox_view_description)
+        )
     }
 }

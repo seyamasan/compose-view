@@ -29,15 +29,18 @@ import com.example.composeview.ui.theme.ComposeViewTheme
 @Composable
 fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
     val screenList = listOf(
-        Screens.ButtonView(description = stringResource(id = R.string.button_view_description)),
-        Screens.FloatingActionButtonView(description = stringResource(id = R.string.floating_action_button_view_description)),
-        Screens.CardView(description = stringResource(id = R.string.card_view_description)),
-        Screens.ChipView(description = stringResource(id = R.string.chip_view_description)),
-        Screens.DialogView(description = stringResource(id = R.string.dialog_view_description)),
-        Screens.IndicatorView(description = stringResource(id = R.string.indicator_view_description)),
-        Screens.SliderView(description = stringResource(id = R.string.slider_view_description)),
-        Screens.SwitchView(description = stringResource(id = R.string.switch_view_description)),
-        Screens.CheckboxView(description = stringResource(id = R.string.checkbox_view_description))
+        Screens.ButtonView(viewName = stringResource(id = R.string.button_view_name), description = stringResource(id = R.string.button_view_description)),
+        Screens.FloatingActionButtonView(viewName = stringResource(id = R.string.floating_action_button_view_name), description = stringResource(id = R.string.floating_action_button_view_description)),
+        Screens.CardView(viewName = stringResource(id = R.string.card_view_name), description = stringResource(id = R.string.card_view_description)),
+        Screens.ChipView(viewName = stringResource(id = R.string.chip_view_name), description = stringResource(id = R.string.chip_view_description)),
+        Screens.DialogView(viewName = stringResource(id = R.string.dialog_view_name), description = stringResource(id = R.string.dialog_view_description)),
+        Screens.IndicatorView(viewName = stringResource(id = R.string.indicator_view_name), description = stringResource(id = R.string.indicator_view_description)),
+        Screens.SliderView(viewName = stringResource(id = R.string.slider_view_name), description = stringResource(id = R.string.slider_view_description)),
+        Screens.SwitchView(viewName = stringResource(id = R.string.switch_view_name), description = stringResource(id = R.string.switch_view_description)),
+        Screens.CheckboxView(viewName = stringResource(id = R.string.checkbox_view_name), description = stringResource(id = R.string.checkbox_view_description)),
+        Screens.BudgeBoxView(viewName = stringResource(id = R.string.budge_box_view_name), description = stringResource(id = R.string.budge_box_view_description)),
+        Screens.BottomSheetView(viewName = stringResource(id = R.string.bottom_sheet_view_name), description = stringResource(id = R.string.bottom_sheet_view_description)),
+        Screens.NavigationDrawerView(viewName = stringResource(id = R.string.navigation_drawer_view_name), description = stringResource(id = R.string.navigation_drawer_view_description))
     )
 
     // Scaffoldを使ってtopBarを表示 & innerPaddingをViewのpaddingに適応でbarと重ならないようにしている
@@ -71,27 +74,30 @@ fun HomeView(navController: NavHostController?, modifier: Modifier = Modifier) {
 
 @Composable
 private fun CardContent(screen: Any) {
+    val viewName = when (screen) {
+        is Screens.ButtonView -> stringResource(id = R.string.button_view_name)
+        is Screens.FloatingActionButtonView -> stringResource(id = R.string.floating_action_button_view_name)
+        is Screens.CardView -> stringResource(id = R.string.card_view_name)
+        is Screens.ChipView -> stringResource(id = R.string.chip_view_name)
+        is Screens.DialogView -> stringResource(id = R.string.dialog_view_name)
+        is Screens.IndicatorView -> stringResource(id = R.string.indicator_view_name)
+        is Screens.SliderView -> stringResource(id = R.string.slider_view_name)
+        is Screens.SwitchView -> stringResource(id = R.string.switch_view_name)
+        is Screens.CheckboxView -> stringResource(id = R.string.checkbox_view_name)
+        is Screens.BudgeBoxView -> stringResource(id = R.string.budge_box_view_name)
+        is Screens.BottomSheetView -> stringResource(id = R.string.bottom_sheet_view_name)
+        is Screens.NavigationDrawerView -> stringResource(id = R.string.navigation_drawer_view_name)
+        else -> {"null"}
+    }
+
     Row(
         modifier = Modifier
             .padding(12.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        val name = when (screen) {
-            is Screens.ButtonView -> stringResource(id = R.string.button_view_name)
-            is Screens.FloatingActionButtonView -> stringResource(id = R.string.floating_action_button_view_name)
-            is Screens.CardView -> stringResource(id = R.string.card_view_name)
-            is Screens.ChipView -> stringResource(id = R.string.chip_view_name)
-            is Screens.DialogView -> stringResource(id = R.string.dialog_view_name)
-            is Screens.IndicatorView -> stringResource(id = R.string.indicator_view_name)
-            is Screens.SliderView -> stringResource(id = R.string.slider_view_name)
-            is Screens.SwitchView -> stringResource(id = R.string.switch_view_name)
-            is Screens.CheckboxView -> stringResource(id = R.string.checkbox_view_name)
-            else -> {"null"}
-        }
-
         Text(
-            text = name,
+            text = viewName,
             style = MaterialTheme.typography.headlineMedium.copy(
                 fontWeight = FontWeight.ExtraBold
             ),
