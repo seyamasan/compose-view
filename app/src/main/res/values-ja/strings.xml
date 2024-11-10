@@ -90,6 +90,11 @@
 
 <!--    NavigationDrawerView-->
     <string name="navigation_drawer_view_name">Navigation Drawer View</string>
-    <string name="navigation_drawer_view_description">勉強中。</string>
+    <string name="navigation_drawer_view_description">ナビゲーションドロワーは、ユーザーがアプリのさまざまなセクションに移動できるようにするスライドイン メニューです。</string>
+    <string name="navigation_drawer_open_settings_sheet">設定シートを開く</string>
+    <string name="navigation_drawer_settings_title">設定</string>
+    <string name="navigation_drawer_account">アカウント</string>
+    <string name="navigation_drawer_notification">通知</string>
+    <string name="navigation_drawer_favorite">お気に入り</string>
 
 </resources>

@@ -90,6 +90,11 @@
 
 <!--    NavigationDrawerView-->
     <string name="navigation_drawer_view_name">Navigation Drawer View</string>
-    <string name="navigation_drawer_view_description">I’m currently studying.</string>
+    <string name="navigation_drawer_view_description">A navigation drawer is a slide-in menu that lets users navigate to different sections of your app.</string>
+    <string name="navigation_drawer_open_settings_sheet">Open settings sheet</string>
+    <string name="navigation_drawer_settings_title">Settings</string>
+    <string name="navigation_drawer_account">Account</string>
+    <string name="navigation_drawer_notification">Notification</string>
+    <string name="navigation_drawer_favorite">Favorite</string>
 
 </resources>

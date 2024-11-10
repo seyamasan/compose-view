@@ -1,10 +1,12 @@
 package com.example.composeview.navigator
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.example.composeview.screens.Screens
 import com.example.composeview.ui.BottomSheetView
 import com.example.composeview.ui.BudgeBoxView
 import com.example.composeview.ui.ButtonView
@@ -24,7 +26,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
     @Composable
     override fun NavigateTo() {
         NavHost(
-            navController = navController,Screens.Home
+            navController = navController, Screens.Home
         ) {
             // ホーム
             composable<Screens.Home> {
@@ -38,8 +40,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val buttonView: Screens.ButtonView = backStackEntry.toRoute()
                 ButtonView(
                     navController = navController,
-                    viewName = buttonView.viewName,
-                    description = buttonView.description
+                    viewName = stringResource(id = buttonView.viewNameResId),
+                    description = stringResource(id = buttonView.descriptionResId)
                 )
             }
 
@@ -48,8 +50,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val floatingActionButtonView: Screens.FloatingActionButtonView = backStackEntry.toRoute()
                 FloatingActionButtonView(
                     navController = navController,
-                    viewName = floatingActionButtonView.viewName,
-                    description = floatingActionButtonView.description
+                    viewName = stringResource(id = floatingActionButtonView.viewNameResId),
+                    description = stringResource(id = floatingActionButtonView.descriptionResId)
                 )
             }
 
@@ -58,8 +60,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val cardView: Screens.CardView = backStackEntry.toRoute()
                 CardView(
                     navController = navController,
-                    viewName = cardView.viewName,
-                    description = cardView.description
+                    viewName = stringResource(id = cardView.viewNameResId),
+                    description = stringResource(id = cardView.descriptionResId)
                 )
             }
 
@@ -68,8 +70,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val chipView: Screens.ChipView = backStackEntry.toRoute()
                 ChipView(
                     navController = navController,
-                    viewName = chipView.viewName,
-                    description = chipView.description
+                    viewName = stringResource(id = chipView.viewNameResId),
+                    description = stringResource(id = chipView.descriptionResId)
                 )
             }
 
@@ -78,8 +80,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val dialogView: Screens.DialogView = backStackEntry.toRoute()
                 DialogView(
                     navController = navController,
-                    viewName = dialogView.viewName,
-                    description = dialogView.description
+                    viewName = stringResource(id = dialogView.viewNameResId),
+                    description = stringResource(id = dialogView.descriptionResId)
                 )
             }
 
@@ -88,8 +90,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val indicatorView: Screens.IndicatorView = backStackEntry.toRoute()
                 IndicatorView(
                     navController = navController,
-                    viewName = indicatorView.viewName,
-                    description = indicatorView.description
+                    viewName = stringResource(id = indicatorView.viewNameResId),
+                    description = stringResource(id = indicatorView.descriptionResId)
                 )
             }
 
@@ -98,8 +100,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val sliderView: Screens.SliderView = backStackEntry.toRoute()
                 SliderView(
                     navController = navController,
-                    viewName = sliderView.viewName,
-                    description = sliderView.description
+                    viewName = stringResource(id = sliderView.viewNameResId),
+                    description = stringResource(id = sliderView.descriptionResId)
                 )
             }
 
@@ -108,8 +110,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val switchView: Screens.SwitchView = backStackEntry.toRoute()
                 SwitchView(
                     navController = navController,
-                    viewName = switchView.viewName,
-                    description = switchView.description
+                    viewName = stringResource(id = switchView.viewNameResId),
+                    description = stringResource(id = switchView.descriptionResId)
                 )
             }
 
@@ -118,8 +120,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val checkboxView: Screens.CheckboxView = backStackEntry.toRoute()
                 CheckboxView(
                     navController = navController,
-                    viewName = checkboxView.viewName,
-                    description = checkboxView.description
+                    viewName = stringResource(id = checkboxView.viewNameResId),
+                    description = stringResource(id = checkboxView.descriptionResId)
                 )
             }
 
@@ -128,8 +130,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val budgeBoxView: Screens.BudgeBoxView = backStackEntry.toRoute()
                 BudgeBoxView(
                     navController = navController,
-                    viewName = budgeBoxView.viewName,
-                    description = budgeBoxView.description
+                    viewName = stringResource(id = budgeBoxView.viewNameResId),
+                    description = stringResource(id = budgeBoxView.descriptionResId)
                 )
             }
 
@@ -138,8 +140,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val bottomSheetView: Screens.BottomSheetView = backStackEntry.toRoute()
                 BottomSheetView(
                     navController = navController,
-                    viewName = bottomSheetView.viewName,
-                    description = bottomSheetView.description
+                    viewName = stringResource(id = bottomSheetView.viewNameResId),
+                    description = stringResource(id = bottomSheetView.descriptionResId)
                 )
             }
 
@@ -148,8 +150,8 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 val navigationDrawerView: Screens.NavigationDrawerView = backStackEntry.toRoute()
                 NavigationDrawerView(
                     navController = navController,
-                    viewName = navigationDrawerView.viewName,
-                    description = navigationDrawerView.description
+                    viewName = stringResource(id = navigationDrawerView.viewNameResId),
+                    description = stringResource(id = navigationDrawerView.descriptionResId)
                 )
             }
         }
