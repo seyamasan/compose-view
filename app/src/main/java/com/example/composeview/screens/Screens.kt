@@ -17,7 +17,8 @@ class Screens {
             CheckboxView(),
             BudgeBoxView(),
             BottomSheetView(),
-            NavigationDrawerView()
+            NavigationDrawerView(),
+            DividerView()
         )
     }
 
@@ -94,5 +95,11 @@ class Screens {
     data class NavigationDrawerView(
         override val viewNameResId: Int = R.string.navigation_drawer_view_name,
         override val descriptionResId: Int = R.string.navigation_drawer_view_description
+    ):ScreenData
+
+    @Serializable
+    data class DividerView(
+        override val viewNameResId: Int = R.string.divider_view_name,
+        override val descriptionResId: Int = R.string.divider_view_description
     ):ScreenData
 }

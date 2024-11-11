@@ -12,7 +12,6 @@ import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
-import com.example.composeview.screens.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
 
 /*
@@ -29,7 +28,7 @@ fun TopBarView(navController: NavHostController?, title: String, enableBack: Boo
         ),
         navigationIcon = {
             if (enableBack) {
-                IconButton(onClick = { navController?.navigate(Screens.Home) }) {
+                IconButton(onClick = { navController?.popBackStack() }) {
                     Icon(Icons.AutoMirrored.Filled.KeyboardArrowLeft, contentDescription = "Back")
                 }
             }

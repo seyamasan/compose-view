@@ -97,4 +97,11 @@
     <string name="navigation_drawer_notification">通知</string>
     <string name="navigation_drawer_favorite">お気に入り</string>
 
+<!--    DividerView-->
+    <string name="divider_view_name">Divider View</string>
+    <string name="divider_view_description">Dividerは、リストやその他のアイテムを区切る細い線です。</string>
+    <string name="divider_view_on_text">ON</string>
+    <string name="divider_view_off_text">OFF</string>
+    <string name="divider_view_supporting_text">ONをタップするとリストが表示されます。</string>
+
 </resources>
