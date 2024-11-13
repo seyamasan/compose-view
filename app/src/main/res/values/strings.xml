@@ -104,4 +104,9 @@
     <string name="divider_view_off_text">OFF</string>
     <string name="divider_view_supporting_text">Tap ON to display the list.</string>
 
+<!--    DatePickerView-->
+    <string name="date_picker_view_name">DatePicker View</string>
+    <string name="date_picker_view_description">I’m currently studying.</string>
+    <string name="date_picker_view_date">year, month, day</string>
+
 </resources>

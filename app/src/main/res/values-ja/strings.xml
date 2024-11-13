@@ -104,4 +104,9 @@
     <string name="divider_view_off_text">OFF</string>
     <string name="divider_view_supporting_text">ONをタップするとリストが表示されます。</string>
 
+<!--    DatePickerView-->
+    <string name="date_picker_view_name">DatePicker View</string>
+    <string name="date_picker_view_description">勉強中です。</string>
+    <string name="date_picker_view_date">年月日</string>
+
 </resources>

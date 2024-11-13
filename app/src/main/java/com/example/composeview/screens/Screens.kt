@@ -18,7 +18,8 @@ class Screens {
             BudgeBoxView(),
             BottomSheetView(),
             NavigationDrawerView(),
-            DividerView()
+            DividerView(),
+            DatePickerView()
         )
     }
 
@@ -101,5 +102,11 @@ class Screens {
     data class DividerView(
         override val viewNameResId: Int = R.string.divider_view_name,
         override val descriptionResId: Int = R.string.divider_view_description
+    ):ScreenData
+
+    @Serializable
+    data class DatePickerView(
+        override val viewNameResId: Int = R.string.date_picker_view_name,
+        override val descriptionResId: Int = R.string.date_picker_view_description
     ):ScreenData
 }

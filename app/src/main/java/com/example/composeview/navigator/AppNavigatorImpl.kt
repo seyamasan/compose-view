@@ -13,6 +13,7 @@ import com.example.composeview.ui.ButtonView
 import com.example.composeview.ui.CardView
 import com.example.composeview.ui.CheckboxView
 import com.example.composeview.ui.ChipView
+import com.example.composeview.ui.DatePickerView
 import com.example.composeview.ui.DialogView
 import com.example.composeview.ui.DividerView
 import com.example.composeview.ui.FloatingActionButtonView
@@ -163,6 +164,16 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                     navController = navController,
                     viewName = stringResource(id = dividerView.viewNameResId),
                     description = stringResource(id = dividerView.descriptionResId)
+                )
+            }
+
+            // DatePickerのView
+            composable<Screens.DatePickerView> { backStackEntry ->
+                val datePickerView: Screens.DatePickerView = backStackEntry.toRoute()
+                DatePickerView(
+                    navController = navController,
+                    viewName = stringResource(id = datePickerView.viewNameResId),
+                    description = stringResource(id = datePickerView.descriptionResId)
                 )
             }
         }
