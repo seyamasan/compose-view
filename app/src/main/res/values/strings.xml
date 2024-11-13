@@ -107,6 +107,7 @@
 <!--    DatePickerView-->
     <string name="date_picker_view_name">DatePicker View</string>
     <string name="date_picker_view_description">I’m currently studying.</string>
-    <string name="date_picker_view_date">year, month, day</string>
+    <string name="select_only_calendar">Selection-only calendar</string>
+    <string name="select_and_input_calendar">Selection and input calendar</string>
 
 </resources>

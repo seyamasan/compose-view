@@ -107,6 +107,7 @@
 <!--    DatePickerView-->
     <string name="date_picker_view_name">DatePicker View</string>
     <string name="date_picker_view_description">勉強中です。</string>
-    <string name="date_picker_view_date">年月日</string>
+    <string name="select_only_calendar">選択のみのカレンダー</string>
+    <string name="select_and_input_calendar">選択と入力可能なカレンダー</string>
 
 </resources>
