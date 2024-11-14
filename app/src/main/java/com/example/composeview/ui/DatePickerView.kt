@@ -17,6 +17,8 @@ import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DatePickerState
+import androidx.compose.material3.DateRangePicker
+import androidx.compose.material3.DateRangePickerState
 import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,6 +29,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
+import androidx.compose.material3.rememberDateRangePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -55,6 +58,9 @@ fun DatePickerView(navController: NavHostController?, viewName: String, descript
     var selectedDate by rememberSaveable { mutableStateOf<Long?>(null) }
     var showModalDatePiker by rememberSaveable { mutableStateOf(false) }
     val datePickerModalState = rememberDatePickerState(initialDisplayMode = DisplayMode.Input)
+    var showDateRangePicker by rememberSaveable { mutableStateOf(false) }
+    var selectedDateRange by rememberSaveable { mutableStateOf<Pair<Long?, Long?>>(null to null) }
+    val dateRangePickerState = rememberDateRangePickerState()
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -87,6 +93,14 @@ fun DatePickerView(navController: NavHostController?, viewName: String, descript
                 onClick = { showModalDatePiker = it },
                 onSelected = { selectedDate = it },
                 datePickerModalState = datePickerModalState
+            )
+
+            DateRangePickerModal(
+                showDateRangePicker = showDateRangePicker,
+                dateRangePickerState = dateRangePickerState,
+                onClick = { showDateRangePicker = !showDateRangePicker },
+                onDateRangeSelected = { selectedDateRange = it },
+                onDismiss = { showDateRangePicker = false }
             )
         }
     }
@@ -217,6 +231,92 @@ private fun DatePickerModalInput(
                 .verticalScroll(rememberScrollState())
         ) {
             DatePicker(state = datePickerModalState)
+        }
+    }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun DateRangePickerModal(
+    showDateRangePicker: Boolean,
+    dateRangePickerState: DateRangePickerState,
+    onClick: () -> Unit,
+    onDateRangeSelected: (Pair<Long?, Long?>) -> Unit,
+    onDismiss: () -> Unit
+) {
+    // 開始日
+    val selectedStartDateMillis = dateRangePickerState.selectedStartDateMillis?.let {
+        convertMillisToDate(it)
+    } ?: ""
+    // 終了日
+    val selectedEndDateMillis = dateRangePickerState.selectedEndDateMillis?.let {
+        convertMillisToDate(it)
+    } ?: ""
+    var selectedDateRange = if (selectedStartDateMillis != "" &&  selectedEndDateMillis != "") {
+        "$selectedStartDateMillis-$selectedEndDateMillis"
+    } else { "" }
+
+
+    Box(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        OutlinedTextField(
+            value = selectedDateRange,
+            onValueChange = {},
+            label = { Text(stringResource(id = R.string.start_and_end_calendar)) },
+            readOnly = true,
+            trailingIcon = {
+                IconButton(onClick = onClick) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = "DateRange icon"
+                    )
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(64.dp)
+        )
+    }
+
+    if (showDateRangePicker) {
+        DatePickerDialog(
+            onDismissRequest = onDismiss,
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        onDateRangeSelected(
+                            Pair(
+                                dateRangePickerState.selectedStartDateMillis,
+                                dateRangePickerState.selectedEndDateMillis
+                            )
+                        )
+                        onDismiss()
+                    }
+                ) {
+                    Text("OK")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = onDismiss) {
+                    Text("Cancel")
+                }
+            }
+        ) {
+            DateRangePicker(
+                state = dateRangePickerState,
+                title = {
+                    Text(
+                        text = "Select date range"
+                    )
+                },
+                showModeToggle = false,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(500.dp)
+                    .padding(8.dp)
+            )
         }
     }
 }

@@ -106,8 +106,9 @@
 
 <!--    DatePickerView-->
     <string name="date_picker_view_name">DatePicker View</string>
-    <string name="date_picker_view_description">I’m currently studying.</string>
+    <string name="date_picker_view_description">The DatePicker allows the user to select a date, using either a calendar or text input.</string>
     <string name="select_only_calendar">Selection-only calendar</string>
     <string name="select_and_input_calendar">Selection and input calendar</string>
+    <string name="start_and_end_calendar">A calendar that lets you choose start and end dates</string>
 
 </resources>
