@@ -105,10 +105,14 @@
     <string name="divider_view_supporting_text">Tap ON to display the list.</string>
 
 <!--    DatePickerView-->
-    <string name="date_picker_view_name">DatePicker View</string>
+    <string name="date_picker_view_name">Date Picker View</string>
     <string name="date_picker_view_description">The DatePicker allows the user to select a date, using either a calendar or text input.</string>
     <string name="select_only_calendar">Selection-only calendar</string>
     <string name="select_and_input_calendar">Selection and input calendar</string>
     <string name="start_and_end_calendar">A calendar that lets you choose start and end dates</string>
+
+<!--    TimePikerView-->
+    <string name="time_picker_view_name">Time Picker View</string>
+    <string name="time_picker_view_description">Time Pickerは、勉強中です。</string>
 
 </resources>

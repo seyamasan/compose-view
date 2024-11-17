@@ -19,7 +19,8 @@ class Screens {
             BottomSheetView(),
             NavigationDrawerView(),
             DividerView(),
-            DatePickerView()
+            DatePickerView(),
+            TimePikerView()
         )
     }
 
@@ -108,5 +109,11 @@ class Screens {
     data class DatePickerView(
         override val viewNameResId: Int = R.string.date_picker_view_name,
         override val descriptionResId: Int = R.string.date_picker_view_description
+    ):ScreenData
+
+    @Serializable
+    data class TimePikerView(
+        override val viewNameResId: Int = R.string.time_picker_view_name,
+        override val descriptionResId: Int = R.string.time_picker_view_description
     ):ScreenData
 }

@@ -22,6 +22,7 @@ import com.example.composeview.ui.IndicatorView
 import com.example.composeview.ui.NavigationDrawerView
 import com.example.composeview.ui.SliderView
 import com.example.composeview.ui.SwitchView
+import com.example.composeview.ui.TimePikerView
 
 class AppNavigatorImpl (private val navController: NavHostController) : AppNavigator {
 
@@ -174,6 +175,16 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                     navController = navController,
                     viewName = stringResource(id = datePickerView.viewNameResId),
                     description = stringResource(id = datePickerView.descriptionResId)
+                )
+            }
+
+            // TimePikerのView
+            composable<Screens.TimePikerView> { backStackEntry ->
+                val timePikerView: Screens.TimePikerView = backStackEntry.toRoute()
+                TimePikerView(
+                    navController = navController,
+                    viewName = stringResource(id = timePikerView.viewNameResId),
+                    description = stringResource(id = timePikerView.descriptionResId)
                 )
             }
         }

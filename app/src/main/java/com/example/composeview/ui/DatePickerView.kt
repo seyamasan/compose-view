@@ -253,7 +253,7 @@ private fun DateRangePickerModal(
     val selectedEndDateMillis = dateRangePickerState.selectedEndDateMillis?.let {
         convertMillisToDate(it)
     } ?: ""
-    var selectedDateRange = if (selectedStartDateMillis != "" &&  selectedEndDateMillis != "") {
+    val selectedDateRange = if (selectedStartDateMillis != "" &&  selectedEndDateMillis != "") {
         "$selectedStartDateMillis-$selectedEndDateMillis"
     } else { "" }
 
