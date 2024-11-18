@@ -113,6 +113,8 @@
 
 <!--    TimePikerView-->
     <string name="time_picker_view_name">Time Picker View</string>
-    <string name="time_picker_view_description">Time Pickerは、勉強中です。</string>
+    <string name="time_picker_view_description">Time Pickerは、ユーザーが時刻を選択することができます。</string>
+    <string name="time_select_1">時間を選択1</string>
+    <string name="dial_time_piker">ダイアルを回して時刻を選択できます。</string>
 
 </resources>
