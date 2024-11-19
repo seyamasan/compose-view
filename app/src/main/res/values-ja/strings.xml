@@ -116,5 +116,11 @@
     <string name="time_picker_view_description">Time Pickerは、ユーザーが時刻を選択することができます。</string>
     <string name="time_select_1">時間を選択1</string>
     <string name="dial_time_piker">ダイアルを回して時刻を選択できます。</string>
+    <string name="time_select_2">時間を選択2</string>
+    <string name="input_time_piker">時刻を入力できます。</string>
+    <string name="time_select_3">時間を選択3</string>
+    <string name="dialog_dial_time_piker">ダイアログでダイアル式で時刻を選択。</string>
+    <string name="time_select_4">時間を選択4</string>
+    <string name="advanced_time_piker">ダイアルと入力を切り替えて時刻を選択。</string>
 
 </resources>

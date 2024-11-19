@@ -114,7 +114,13 @@
 <!--    TimePikerView-->
     <string name="time_picker_view_name">Time Picker View</string>
     <string name="time_picker_view_description">The Time Picker allows the user to select a time.</string>
-    <string name="time_select_1">Select time1</string>
+    <string name="time_select_1">Select time 1</string>
     <string name="dial_time_piker">You can select the time by turning the dial.</string>
+    <string name="time_select_2">Select time 2</string>
+    <string name="input_time_piker">You can enter the time.</string>
+    <string name="time_select_3">Select time 3</string>
+    <string name="dialog_dial_time_piker">Select the time using a dial in the dialog.</string>
+    <string name="time_select_4">Select time 4</string>
+    <string name="advanced_time_piker">Select the time by switching between the dial and input.</string>
 
 </resources>
