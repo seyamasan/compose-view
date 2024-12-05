@@ -20,6 +20,7 @@ import com.example.composeview.ui.FloatingActionButtonView
 import com.example.composeview.ui.HomeView
 import com.example.composeview.ui.IndicatorView
 import com.example.composeview.ui.NavigationDrawerView
+import com.example.composeview.ui.QuantityPickerView
 import com.example.composeview.ui.SliderView
 import com.example.composeview.ui.SwitchView
 import com.example.composeview.ui.TimePikerView
@@ -185,6 +186,16 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                     navController = navController,
                     viewName = stringResource(id = timePikerView.viewNameResId),
                     description = stringResource(id = timePikerView.descriptionResId)
+                )
+            }
+
+            // QuantityPickerView
+            composable<Screens.QuantityPickerView> { backStackEntry ->
+                val quantityPickerView: Screens.QuantityPickerView = backStackEntry.toRoute()
+                QuantityPickerView(
+                    navController = navController,
+                    viewName = stringResource(id = quantityPickerView.viewNameResId),
+                    description = stringResource(id = quantityPickerView.descriptionResId)
                 )
             }
         }

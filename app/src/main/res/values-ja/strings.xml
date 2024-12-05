@@ -123,4 +123,8 @@
     <string name="time_select_4">時間を選択4</string>
     <string name="advanced_time_piker">ダイアルと入力を切り替えて時刻を選択。</string>
 
+<!--    QuantityPickerView-->
+    <string name="quantity_picker_view_name">Quantity Picker View</string>
+    <string name="quantity_picker_view_description">Composeテストで使っています。</string>
+
 </resources>

@@ -123,4 +123,8 @@
     <string name="time_select_4">Select time 4</string>
     <string name="advanced_time_piker">Select the time by switching between the dial and input.</string>
 
+<!--    QuantityPickerView-->
+    <string name="quantity_picker_view_name">Quantity Picker View</string>
+    <string name="quantity_picker_view_description">It is used in Compose testing.</string>
+
 </resources>

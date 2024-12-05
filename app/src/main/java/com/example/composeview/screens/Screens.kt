@@ -20,7 +20,8 @@ class Screens {
             NavigationDrawerView(),
             DividerView(),
             DatePickerView(),
-            TimePikerView()
+            TimePikerView(),
+            QuantityPickerView()
         )
     }
 
@@ -115,5 +116,11 @@ class Screens {
     data class TimePikerView(
         override val viewNameResId: Int = R.string.time_picker_view_name,
         override val descriptionResId: Int = R.string.time_picker_view_description
+    ):ScreenData
+
+    @Serializable
+    data class QuantityPickerView(
+        override val viewNameResId: Int = R.string.quantity_picker_view_name,
+        override val descriptionResId: Int = R.string.quantity_picker_view_description
     ):ScreenData
 }
