@@ -14,17 +14,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.composeview.QuantityPickerState
 import com.example.composeview.R
 import com.example.composeview.ui.theme.ComposeViewTheme
 
 @Composable
 fun QuantityPickerView(navController: NavHostController?, viewName: String, description: String) {
+    val quantityPickerState = remember { mutableStateOf(QuantityPickerState(minQuantity = 0, maxQuantity = 5, initialQuantity = 0)) }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
@@ -44,19 +49,36 @@ fun QuantityPickerView(navController: NavHostController?, viewName: String, desc
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            QuantityPicker()
+            QuantityPicker(state = quantityPickerState.value)
         }
     }
 }
 
 @Composable
-fun QuantityPicker(modifier: Modifier = Modifier) {
+fun QuantityPicker(state: QuantityPickerState, modifier: Modifier = Modifier) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
     ) {
+
         IconButton(
-            onClick = {}
+            enabled = !state.isMinQuantity(), // このやり方自分のプロジェクトでも使えそう
+            onClick = { state.decrease() }
+        ) {
+            Icon(
+                imageVector = Icons.Default.Remove,
+                contentDescription = "Remove icon"
+            )
+        }
+
+        Text(
+            text = state.quantity.toString(),
+            style = MaterialTheme.typography.titleLarge
+        )
+
+        IconButton(
+            enabled = !state.isMaxQuantity(),
+            onClick = { state.increase() }
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
@@ -64,19 +86,6 @@ fun QuantityPicker(modifier: Modifier = Modifier) {
             )
         }
 
-        Text(
-            text = "0",
-            style = MaterialTheme.typography.titleLarge
-        )
-
-        IconButton(
-            onClick = {}
-        ) {
-            Icon(
-                imageVector = Icons.Default.Remove,
-                contentDescription = "Remove icon"
-            )
-        }
     }
 }
 

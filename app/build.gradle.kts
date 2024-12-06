@@ -85,4 +85,7 @@ dependencies {
 
     // lifecycle-viewmodel-compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // テスト用アサーションライブラリ
+    testImplementation(libs.truth)
 }
