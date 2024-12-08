@@ -4,6 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composeview.ui.QuantityPicker
 
+/*
+スクリーンショットテスト
+【./gradlew updateDebugScreenshotTest】でスクリーンショットテスト用の写真を撮る
+【./gradlew validateDebugScreenshotTest】で比較用の写真を撮る
+前後見比べる感じ。
+ */
+
 @Composable
 @Preview(showBackground = true)
 fun QuantityPickerPreviewMinQuantity() {
