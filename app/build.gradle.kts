@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.ksp)
 //    alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.screenshot)
 }
 
 android {
@@ -52,6 +53,8 @@ android {
     testOptions {
         unitTests { isIncludeAndroidResources = true }
     }
+
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 }
 
 dependencies {
@@ -98,5 +101,8 @@ dependencies {
 
     // Robolectric 実機やエミュレータを使わずにAndroidテストを実行できるテストフレームワーク
     testImplementation(libs.robolectric)
+
+    // スクリーンショットテスト
+    screenshotTestImplementation(libs.androidx.ui.tooling)
 
 }
