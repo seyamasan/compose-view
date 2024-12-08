@@ -1,5 +1,6 @@
 package com.example.composeview.ui
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.QuantityPickerState
 import com.example.composeview.R
+import com.example.composeview.screens.Screens
 import com.example.composeview.ui.theme.ComposeViewTheme
 
 @Composable
@@ -67,7 +69,7 @@ fun QuantityPicker(state: QuantityPickerState, modifier: Modifier = Modifier) {
         ) {
             Icon(
                 imageVector = Icons.Default.Remove,
-                contentDescription = "Remove icon"
+                contentDescription = "Decrease quantity" // これただの説明じゃなくてテストで使うから超重要
             )
         }
 
@@ -82,7 +84,7 @@ fun QuantityPicker(state: QuantityPickerState, modifier: Modifier = Modifier) {
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
-                contentDescription = "Add icon"
+                contentDescription = "Increase quantity"
             )
         }
 
@@ -90,6 +92,8 @@ fun QuantityPicker(state: QuantityPickerState, modifier: Modifier = Modifier) {
 }
 
 @Preview(showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(fontScale = 2.0f)
 @Composable
 fun QuantityPickerViewPreview() {
     ComposeViewTheme {
@@ -99,4 +103,37 @@ fun QuantityPickerViewPreview() {
             description = stringResource(id = R.string.quantity_picker_view_description)
         )
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun QuantityPickerPreviewMinQuantity() {
+    val state = QuantityPickerState(
+        minQuantity = 0,
+        maxQuantity = 99,
+        initialQuantity = 0 // 数量が下限
+    )
+    QuantityPicker(state)
+}
+
+@Composable
+@Preview(showBackground = true)
+fun QuantityPickerPreviewMaxQuantity() {
+    val state = QuantityPickerState(
+        minQuantity = 0,
+        maxQuantity = 99,
+        initialQuantity = 99 // 数量が上限
+    )
+    QuantityPicker(state)
+}
+
+@Composable
+@Preview(showBackground = true)
+fun QuantityPickerPreview() {
+    val state = QuantityPickerState(
+        minQuantity = 0,
+        maxQuantity = 99,
+        initialQuantity = 1 // 下限でも上限でもない
+    )
+    QuantityPicker(state)
 }

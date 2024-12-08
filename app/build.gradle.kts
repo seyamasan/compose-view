@@ -48,6 +48,10 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    testOptions {
+        unitTests { isIncludeAndroidResources = true }
+    }
 }
 
 dependencies {
@@ -65,9 +69,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // テストルール
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    implementation(libs.androidx.ui.test.junit4.android) // createComposeRule()使うにはこれが必要だった
 
     // icons extended
     implementation(libs.compose.material.icons.extended)
@@ -88,4 +95,8 @@ dependencies {
 
     // テスト用アサーションライブラリ
     testImplementation(libs.truth)
+
+    // Robolectric 実機やエミュレータを使わずにAndroidテストを実行できるテストフレームワーク
+    testImplementation(libs.robolectric)
+
 }

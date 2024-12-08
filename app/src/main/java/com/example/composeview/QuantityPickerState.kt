@@ -10,7 +10,7 @@ class QuantityPickerState(
     initialQuantity: Int
 ) {
     var quantity by mutableIntStateOf(
-        initialQuantity.coerceIn(minQuantity, maxQuantity) // これは何をしているのか後から調べたい
+        initialQuantity.coerceIn(minQuantity, maxQuantity) // coerceIn(最小以上, 最大以下)に納める
     )
 
     fun isMaxQuantity() = quantity >= maxQuantity
