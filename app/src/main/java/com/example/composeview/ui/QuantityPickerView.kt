@@ -15,22 +15,25 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.composeview.QuantityPickerState
 import com.example.composeview.R
 import com.example.composeview.ui.theme.ComposeViewTheme
+import com.example.composeview.viewModel.QuantityPickerViewModel
 
 @Composable
-fun QuantityPickerView(navController: NavHostController?, viewName: String, description: String) {
-    val quantityPickerState = remember { mutableStateOf(QuantityPickerState(minQuantity = 0, maxQuantity = 5, initialQuantity = 0)) }
-
+fun QuantityPickerView(
+    navController: NavHostController?,
+    viewName: String,
+    description: String,
+    viewModel: QuantityPickerViewModel = viewModel()
+) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
@@ -50,7 +53,7 @@ fun QuantityPickerView(navController: NavHostController?, viewName: String, desc
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            QuantityPicker(state = quantityPickerState.value)
+            QuantityPicker(state = viewModel.quantityPickerState)
         }
     }
 }
