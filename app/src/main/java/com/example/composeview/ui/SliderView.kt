@@ -4,7 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RangeSlider
 import androidx.compose.material3.Scaffold
@@ -54,28 +55,27 @@ fun SliderView(
         ) {
             Text(text = description)
 
-            LazyColumn(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                item {
-                    SliderMinimalExample(
-                        sliderPosition = sliderMinimalExamplePosition,
-                        onChange = { sliderMinimalExamplePosition = it }
-                    )
+                SliderMinimalExample(
+                    sliderPosition = sliderMinimalExamplePosition,
+                    onChange = { sliderMinimalExamplePosition = it }
+                )
 
-                    SliderAdvancedExample(
-                        sliderPosition = sliderAdvancedExamplePosition,
-                        onChange = { sliderAdvancedExamplePosition = it }
-                    )
+                SliderAdvancedExample(
+                    sliderPosition = sliderAdvancedExamplePosition,
+                    onChange = { sliderAdvancedExamplePosition = it }
+                )
 
-                    RangeSliderExample(
-                        sliderPosition = rangeSliderExamplePosition,
-                        onChange = { sliderViewModel.updateSliderPosition(it) },
-                        onValueChangeFinished = { sliderViewModel.finalizeSliderChange() }
-                    )
-                }
+                RangeSliderExample(
+                    sliderPosition = rangeSliderExamplePosition,
+                    onChange = { sliderViewModel.updateSliderPosition(it) },
+                    onValueChangeFinished = { sliderViewModel.finalizeSliderChange() }
+                )
             }
         }
     }

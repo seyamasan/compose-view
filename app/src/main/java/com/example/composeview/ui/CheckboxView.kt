@@ -7,7 +7,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -56,26 +57,25 @@ fun CheckboxView(
         ) {
             Text(text = description)
 
-            LazyColumn(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                item {
-                    CheckboxMinimalExample(
-                        checked = checkedCheckboxMinimalExample,
-                        onChecked = { checkedCheckboxMinimalExample = it }
-                    )
+                CheckboxMinimalExample(
+                    checked = checkedCheckboxMinimalExample,
+                    onChecked = { checkedCheckboxMinimalExample = it }
+                )
 
-                    Spacer(modifier = Modifier.height(50.dp))
+                Spacer(modifier = Modifier.height(50.dp))
 
-                    CheckboxParentExample(
-                        childCheckedStates = childCheckedStates,
-                        onChildCheckedChange = { index, isChecked ->
-                            checkboxViewModel.updateChildState(index, isChecked)
-                        }
-                    )
-                }
+                CheckboxParentExample(
+                    childCheckedStates = childCheckedStates,
+                    onChildCheckedChange = { index, isChecked ->
+                        checkboxViewModel.updateChildState(index, isChecked)
+                    }
+                )
             }
         }
     }

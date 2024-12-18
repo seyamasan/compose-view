@@ -10,7 +10,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material3.Card
@@ -50,30 +51,31 @@ fun CardView(navController: NavHostController?, viewName: String, description: S
         ) {
             Text(text = description)
 
-            LazyColumn {
-                item {
-                    // 普通のカード
-                    CardViewCardItem(
-                        type = CardType.Default,
-                        title = stringResource(id = R.string.card_view_comment_title),
-                        comment = stringResource(id = R.string.card_view_comment1),
-                        count = "192"
-                    )
-                    // 立体感のあるカード
-                    CardViewCardItem(
-                        type = CardType.Elevated,
-                        title = stringResource(id = R.string.card_view_comment_title),
-                        comment = stringResource(id = R.string.card_view_comment2),
-                        count = "19"
-                    )
-                    // 枠線のあるカード
-                    CardViewCardItem(
-                        type = CardType.Outlined,
-                        title = stringResource(id = R.string.card_view_comment_title),
-                        comment = stringResource(id = R.string.card_view_comment3),
-                        count = "57"
-                    )
-                }
+            Column(
+                modifier = Modifier.verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                // 普通のカード
+                CardViewCardItem(
+                    type = CardType.Default,
+                    title = stringResource(id = R.string.card_view_comment_title),
+                    comment = stringResource(id = R.string.card_view_comment1),
+                    count = "192"
+                )
+                // 立体感のあるカード
+                CardViewCardItem(
+                    type = CardType.Elevated,
+                    title = stringResource(id = R.string.card_view_comment_title),
+                    comment = stringResource(id = R.string.card_view_comment2),
+                    count = "19"
+                )
+                // 枠線のあるカード
+                CardViewCardItem(
+                    type = CardType.Outlined,
+                    title = stringResource(id = R.string.card_view_comment_title),
+                    comment = stringResource(id = R.string.card_view_comment3),
+                    count = "57"
+                )
             }
         }
     }

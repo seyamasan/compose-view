@@ -9,10 +9,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
@@ -138,64 +139,62 @@ private fun AssistChipSection(
         )
 
         if (tappedAssistChip) {
-            LazyColumn {
-                item {
-                    ElevatedCard(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp),
-                        elevation = CardDefaults.cardElevation(8.dp)
-                    ) {
-                        Column(modifier = Modifier.padding(16.dp)) {
-                            ChipInputCandidatesView(suggestionChipList) { clickedText ->
-                                onInputTextChange(clickedText)
-                            }
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                ElevatedCard(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    elevation = CardDefaults.cardElevation(8.dp)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        ChipInputCandidatesView(suggestionChipList) { clickedText ->
+                            onInputTextChange(clickedText)
+                        }
 
-                            // フィルターチップ
-                            FilterChip(
-                                modifier = Modifier.padding(horizontal = 5.dp),
-                                onClick = onFilterChipSelect,
-                                label = { Text(stringResource(id = R.string.filter_chip_name)) },
-                                selected = filterChipSelected,
-                                leadingIcon = if (filterChipSelected) {
-                                    {
-                                        Icon(
-                                            imageVector = Icons.Filled.Done,
-                                            contentDescription = "Done icon",
-                                            modifier = Modifier.size(FilterChipDefaults.IconSize)
-                                        )
-                                    }
-                                } else {
-                                    null
-                                },
-                            )
-
-                            Spacer(modifier = Modifier.height(5.dp))
-
-                            LazyRow(modifier = Modifier.fillMaxWidth()) {
-                                items(addButtonList) { name ->
-                                    ChipAddedButtonView(
-                                        addButtonName = name,
-                                        filterChipSelected = filterChipSelected,
-                                        suggestionChipList = suggestionChipList,
-                                        onDismiss = {
-                                            onAddedButtonDismiss(name)
-                                        }
+                        // フィルターチップ
+                        FilterChip(
+                            modifier = Modifier.padding(horizontal = 5.dp),
+                            onClick = onFilterChipSelect,
+                            label = { Text(stringResource(id = R.string.filter_chip_name)) },
+                            selected = filterChipSelected,
+                            leadingIcon = if (filterChipSelected) {
+                                {
+                                    Icon(
+                                        imageVector = Icons.Filled.Done,
+                                        contentDescription = "Done icon",
+                                        modifier = Modifier.size(FilterChipDefaults.IconSize)
                                     )
                                 }
+                            } else {
+                                null
+                            },
+                        )
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        LazyRow(modifier = Modifier.fillMaxWidth()) {
+                            items(addButtonList) { name ->
+                                ChipAddedButtonView(
+                                    addButtonName = name,
+                                    filterChipSelected = filterChipSelected,
+                                    suggestionChipList = suggestionChipList,
+                                    onDismiss = {
+                                        onAddedButtonDismiss(name)
+                                    }
+                                )
                             }
-
-                            Spacer(modifier = Modifier.height(5.dp))
-
-                            ChipTextFieldView(
-                                inputText = inputText,
-                                onNewText = onInputTextChange,
-                                onClick = {
-                                    onSnackbarShow()
-                                    onAddButtonClick()
-                                }
-                            )
                         }
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        ChipTextFieldView(
+                            inputText = inputText,
+                            onNewText = onInputTextChange,
+                            onClick = {
+                                onSnackbarShow()
+                                onAddButtonClick()
+                            }
+                        )
                     }
                 }
             }

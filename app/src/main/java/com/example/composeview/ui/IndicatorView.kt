@@ -7,7 +7,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.LinearProgressIndicator
@@ -59,39 +60,38 @@ fun IndicatorView(
         ) {
             Text(text = description)
 
-            LazyColumn(
+            Column(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                item {
-                    LinearDeterminateIndicator(
-                        currentProgress = indicatorViewModel.linearDeterminateIndicatorCurrentProgress,
-                        loading = indicatorViewModel.linearDeterminateIndicatorLoading,
-                        onStartLoading = { indicatorViewModel.startLoading(LoadingType.LINEAR) }
-                    )
-                    Spacer(modifier = Modifier.height(32.dp))
-                    CircularDeterminateIndicator(
-                        currentProgress = indicatorViewModel.circularDeterminateIndicatorCurrentProgress,
-                        loading = indicatorViewModel.circularDeterminateIndicatorLoading,
-                        onStartLoading = { indicatorViewModel.startLoading(LoadingType.CIRCULAR) }
-                    )
-                    Spacer(modifier = Modifier.height(32.dp))
-                    IndeterminateLinearIndicator(
-                        loading = loadingIndeterminateLinearIndicator,
-                        onClick = {
-                            loadingIndeterminateLinearIndicator = !loadingIndeterminateLinearIndicator
-                        }
-                    )
-                    Spacer(modifier = Modifier.height(32.dp))
-                    IndeterminateCircularIndicator(
-                        loading = loadingIndeterminateCircularIndicator,
-                        onClick = {
-                            loadingIndeterminateCircularIndicator = !loadingIndeterminateCircularIndicator
-                        }
-                    )
-                    Spacer(modifier = Modifier.height(32.dp))
-                }
+                LinearDeterminateIndicator(
+                    currentProgress = indicatorViewModel.linearDeterminateIndicatorCurrentProgress,
+                    loading = indicatorViewModel.linearDeterminateIndicatorLoading,
+                    onStartLoading = { indicatorViewModel.startLoading(LoadingType.LINEAR) }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                CircularDeterminateIndicator(
+                    currentProgress = indicatorViewModel.circularDeterminateIndicatorCurrentProgress,
+                    loading = indicatorViewModel.circularDeterminateIndicatorLoading,
+                    onStartLoading = { indicatorViewModel.startLoading(LoadingType.CIRCULAR) }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                IndeterminateLinearIndicator(
+                    loading = loadingIndeterminateLinearIndicator,
+                    onClick = {
+                        loadingIndeterminateLinearIndicator = !loadingIndeterminateLinearIndicator
+                    }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                IndeterminateCircularIndicator(
+                    loading = loadingIndeterminateCircularIndicator,
+                    onClick = {
+                        loadingIndeterminateCircularIndicator = !loadingIndeterminateCircularIndicator
+                    }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
             }
         }
     }

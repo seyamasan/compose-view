@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -71,12 +71,13 @@ fun ButtonView(navController: NavHostController?, viewName: String, description:
         ) {
             Text(text = description)
 
-            LazyColumn(
+            Column(
                 modifier = Modifier
+                    .verticalScroll(rememberScrollState())
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                itemsIndexed(buttonNameList) { index, name ->
+                buttonNameList.forEachIndexed { index, name ->
                     val message = name + stringResource(id = R.string.tapped_button_msg)
                     val buttonContent = buttonTypes[index]
 
