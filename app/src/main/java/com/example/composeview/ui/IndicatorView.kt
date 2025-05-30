@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -45,6 +47,7 @@ fun IndicatorView(
 ) {
     var loadingIndeterminateLinearIndicator by rememberSaveable { mutableStateOf(false) }
     var loadingIndeterminateCircularIndicator by rememberSaveable { mutableStateOf(false) }
+    var loadingContainedLoadingIndicator by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -89,6 +92,13 @@ fun IndicatorView(
                     loading = loadingIndeterminateCircularIndicator,
                     onClick = {
                         loadingIndeterminateCircularIndicator = !loadingIndeterminateCircularIndicator
+                    }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                ContainedLoadingIndicatorSection(
+                    loading = loadingContainedLoadingIndicator,
+                    onClick = {
+                        loadingContainedLoadingIndicator = !loadingContainedLoadingIndicator
                     }
                 )
                 Spacer(modifier = Modifier.height(32.dp))
@@ -199,6 +209,31 @@ private fun IndeterminateCircularIndicator(
             modifier = Modifier.width(64.dp),
             color = MaterialTheme.colorScheme.secondary,
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+private fun ContainedLoadingIndicatorSection(
+    loading: Boolean,
+    onClick: () -> Unit
+) {
+    // グリングリンしているIndicator
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ElevatedButton(
+            onClick = onClick
+        ) {
+            Text("グリングリン")
+        }
+
+        if (!loading) return
+
+        ContainedLoadingIndicator(
+            modifier = Modifier.width(64.dp)
         )
     }
 }
