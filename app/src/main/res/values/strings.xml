@@ -60,6 +60,8 @@
     <string name="circular_determinate_indicator_button">Start Circular Progress Bar 1</string>
     <string name="indeterminate_linear_indicator_button">Start Linear Progress Bar 2</string>
     <string name="indeterminate_circular_indicator_button">Start Circular Progress Bar 2</string>
+    <string name="linear_wavy_indicator_sample_button">Start Linear Wavy Progress Bar</string>
+    <string name="circular_wavy_progress_indicator_sample_button">Start Circular Wavy Progress Bar</string>
     <string name="loading_indicator_sample_button">Start Loading Indicator 1</string>
     <string name="contained_loading_indicator_sample_button">Start Loading Indicator 2</string>
 

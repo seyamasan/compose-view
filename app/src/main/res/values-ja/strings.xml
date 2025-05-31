@@ -60,8 +60,10 @@
     <string name="circular_determinate_indicator_button">円形プログレスバー1をスタート</string>
     <string name="indeterminate_linear_indicator_button">線形プログレスバー2をスタート</string>
     <string name="indeterminate_circular_indicator_button">円形プログレスバー2をスタート</string>
-    <string name="loading_indicator_sample_button">ローディングインジケータをスタート1</string>
-    <string name="contained_loading_indicator_sample_button">ローディングインジケータをスタート2</string>
+    <string name="linear_wavy_indicator_sample_button">Wavyな線形プログレスバーをスタート</string>
+    <string name="circular_wavy_progress_indicator_sample_button">Wavyな円形プログレスバーをスタート</string>
+    <string name="loading_indicator_sample_button">ローディングインジケータ1をスタート</string>
+    <string name="contained_loading_indicator_sample_button">ローディングインジケータ2をスタート</string>
 
 <!--    SliderView-->
     <string name="slider_view_name">Slider View</string>

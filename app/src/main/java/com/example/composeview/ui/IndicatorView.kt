@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.CircularWavyProgressIndicator
 import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.LinearWavyProgressIndicator
 import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -48,6 +50,8 @@ fun IndicatorView(
 ) {
     var enableIndeterminateLinearIndicator by rememberSaveable { mutableStateOf(false) }
     var enableIndeterminateCircularIndicator by rememberSaveable { mutableStateOf(false) }
+    var enableLinearWavyProgressIndicator by rememberSaveable { mutableStateOf(false) }
+    var enableCircularWavyProgressIndicator by rememberSaveable { mutableStateOf(false) }
     var enableLoadingIndicator by rememberSaveable { mutableStateOf(false) }
     var enableContainedLoadingIndicator by rememberSaveable { mutableStateOf(false) }
 
@@ -94,6 +98,20 @@ fun IndicatorView(
                     loading = enableIndeterminateCircularIndicator,
                     onClick = {
                         enableIndeterminateCircularIndicator = !enableIndeterminateCircularIndicator
+                    }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                LinearWavyProgressIndicatorSample(
+                    loading = enableLinearWavyProgressIndicator,
+                    onClick = {
+                        enableLinearWavyProgressIndicator = !enableLinearWavyProgressIndicator
+                    }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                CircularWavyProgressIndicatorSample(
+                    loading = enableCircularWavyProgressIndicator,
+                    onClick = {
+                        enableCircularWavyProgressIndicator = !enableCircularWavyProgressIndicator
                     }
                 )
                 Spacer(modifier = Modifier.height(32.dp))
@@ -215,7 +233,59 @@ private fun IndeterminateCircularIndicator(
         if (!loading) return
 
         CircularProgressIndicator(
-            modifier = Modifier.width(64.dp),
+            color = MaterialTheme.colorScheme.secondary,
+            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+private fun LinearWavyProgressIndicatorSample(
+    loading: Boolean,
+    onClick: () -> Unit
+) {
+    // Wavyな線形プログレスバー
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ElevatedButton(
+            onClick = onClick
+        ) {
+            Text(stringResource(id = R.string.linear_wavy_indicator_sample_button))
+        }
+
+        if (!loading) return
+
+        LinearWavyProgressIndicator(
+            modifier = Modifier.fillMaxWidth(),
+            color = MaterialTheme.colorScheme.secondary,
+            trackColor = MaterialTheme.colorScheme.surfaceVariant,
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+private fun CircularWavyProgressIndicatorSample(
+    loading: Boolean,
+    onClick: () -> Unit
+) {
+    // Wavyな円形プログレスバー
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ElevatedButton(
+            onClick = onClick
+        ) {
+            Text(stringResource(id = R.string.circular_wavy_progress_indicator_sample_button))
+        }
+
+        if (!loading) return
+
+        CircularWavyProgressIndicator(
             color = MaterialTheme.colorScheme.secondary,
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
         )
@@ -228,7 +298,7 @@ private fun LoadingIndicatorSample(
     loading: Boolean,
     onClick: () -> Unit
 ) {
-    // ウネウネしているLoading Indicator
+    // 色んな形に変わるLoading Indicator
     Column(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -242,7 +312,8 @@ private fun LoadingIndicatorSample(
         if (!loading) return
 
         LoadingIndicator(
-            modifier = Modifier.width(64.dp)
+            modifier = Modifier.width(64.dp),
+            color = MaterialTheme.colorScheme.secondary
         )
     }
 }
@@ -253,7 +324,7 @@ private fun ContainedLoadingIndicatorSample(
     loading: Boolean,
     onClick: () -> Unit
 ) {
-    // 外枠があるウネウネしているLoading Indicator
+    // 外枠がある色んな形に変わるLoading Indicator
     Column(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -267,7 +338,9 @@ private fun ContainedLoadingIndicatorSample(
         if (!loading) return
 
         ContainedLoadingIndicator(
-            modifier = Modifier.width(64.dp)
+            modifier = Modifier.width(64.dp),
+            containerColor = MaterialTheme.colorScheme.secondary,
+            indicatorColor = MaterialTheme.colorScheme.surfaceVariant,
         )
     }
 }
