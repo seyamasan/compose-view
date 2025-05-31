@@ -14,6 +14,7 @@ import androidx.compose.material3.ContainedLoadingIndicator
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.LoadingIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -45,9 +46,10 @@ fun IndicatorView(
     description: String,
     indicatorViewModel: IndicatorViewModel = viewModel()
 ) {
-    var loadingIndeterminateLinearIndicator by rememberSaveable { mutableStateOf(false) }
-    var loadingIndeterminateCircularIndicator by rememberSaveable { mutableStateOf(false) }
-    var loadingContainedLoadingIndicator by rememberSaveable { mutableStateOf(false) }
+    var enableIndeterminateLinearIndicator by rememberSaveable { mutableStateOf(false) }
+    var enableIndeterminateCircularIndicator by rememberSaveable { mutableStateOf(false) }
+    var enableLoadingIndicator by rememberSaveable { mutableStateOf(false) }
+    var enableContainedLoadingIndicator by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -82,23 +84,30 @@ fun IndicatorView(
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 IndeterminateLinearIndicator(
-                    loading = loadingIndeterminateLinearIndicator,
+                    loading = enableIndeterminateLinearIndicator,
                     onClick = {
-                        loadingIndeterminateLinearIndicator = !loadingIndeterminateLinearIndicator
+                        enableIndeterminateLinearIndicator = !enableIndeterminateLinearIndicator
                     }
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 IndeterminateCircularIndicator(
-                    loading = loadingIndeterminateCircularIndicator,
+                    loading = enableIndeterminateCircularIndicator,
                     onClick = {
-                        loadingIndeterminateCircularIndicator = !loadingIndeterminateCircularIndicator
+                        enableIndeterminateCircularIndicator = !enableIndeterminateCircularIndicator
                     }
                 )
                 Spacer(modifier = Modifier.height(32.dp))
-                ContainedLoadingIndicatorSection(
-                    loading = loadingContainedLoadingIndicator,
+                LoadingIndicatorSample(
+                    loading = enableLoadingIndicator,
                     onClick = {
-                        loadingContainedLoadingIndicator = !loadingContainedLoadingIndicator
+                        enableLoadingIndicator = !enableLoadingIndicator
+                    }
+                )
+                Spacer(modifier = Modifier.height(32.dp))
+                ContainedLoadingIndicatorSample(
+                    loading = enableContainedLoadingIndicator,
+                    onClick = {
+                        enableContainedLoadingIndicator = !enableContainedLoadingIndicator
                     }
                 )
                 Spacer(modifier = Modifier.height(32.dp))
@@ -215,11 +224,11 @@ private fun IndeterminateCircularIndicator(
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-private fun ContainedLoadingIndicatorSection(
+private fun LoadingIndicatorSample(
     loading: Boolean,
     onClick: () -> Unit
 ) {
-    // グリングリンしているIndicator
+    // ウネウネしているLoading Indicator
     Column(
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -227,7 +236,32 @@ private fun ContainedLoadingIndicatorSection(
         ElevatedButton(
             onClick = onClick
         ) {
-            Text("グリングリン")
+            Text(stringResource(id = R.string.loading_indicator_sample_button))
+        }
+
+        if (!loading) return
+
+        LoadingIndicator(
+            modifier = Modifier.width(64.dp)
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+private fun ContainedLoadingIndicatorSample(
+    loading: Boolean,
+    onClick: () -> Unit
+) {
+    // 外枠があるウネウネしているLoading Indicator
+    Column(
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ElevatedButton(
+            onClick = onClick
+        ) {
+            Text(stringResource(id = R.string.contained_loading_indicator_sample_button))
         }
 
         if (!loading) return

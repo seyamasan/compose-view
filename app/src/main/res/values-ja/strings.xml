@@ -60,6 +60,8 @@
     <string name="circular_determinate_indicator_button">円形プログレスバー1をスタート</string>
     <string name="indeterminate_linear_indicator_button">線形プログレスバー2をスタート</string>
     <string name="indeterminate_circular_indicator_button">円形プログレスバー2をスタート</string>
+    <string name="loading_indicator_sample_button">ローディングインジケータをスタート1</string>
+    <string name="contained_loading_indicator_sample_button">ローディングインジケータをスタート2</string>
 
 <!--    SliderView-->
     <string name="slider_view_name">Slider View</string>
