@@ -131,4 +131,8 @@
     <string name="quantity_picker_view_name">Quantity Picker View</string>
     <string name="quantity_picker_view_description">Composeテストで使っています。</string>
 
+<!--    SplitButtonView-->
+    <string name="split_button_view_name">Split Button View</string>
+    <string name="split_button_view_description">Split Button のサンプルです。</string>
+
 </resources>

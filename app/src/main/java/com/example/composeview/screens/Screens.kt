@@ -21,7 +21,8 @@ class Screens {
             DividerView(),
             DatePickerView(),
             TimePikerView(),
-            QuantityPickerView()
+            QuantityPickerView(),
+            SplitButtonView()
         )
     }
 
@@ -122,5 +123,11 @@ class Screens {
     data class QuantityPickerView(
         override val viewNameResId: Int = R.string.quantity_picker_view_name,
         override val descriptionResId: Int = R.string.quantity_picker_view_description
+    ):ScreenData
+
+    @Serializable
+    data class SplitButtonView(
+        override val viewNameResId: Int = R.string.split_button_view_name,
+        override val descriptionResId: Int = R.string.split_button_view_description
     ):ScreenData
 }

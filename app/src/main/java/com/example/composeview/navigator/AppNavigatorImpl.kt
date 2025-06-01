@@ -22,6 +22,7 @@ import com.example.composeview.ui.IndicatorView
 import com.example.composeview.ui.NavigationDrawerView
 import com.example.composeview.ui.QuantityPickerView
 import com.example.composeview.ui.SliderView
+import com.example.composeview.ui.SplitButtonView
 import com.example.composeview.ui.SwitchView
 import com.example.composeview.ui.TimePikerView
 
@@ -196,6 +197,16 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                     navController = navController,
                     viewName = stringResource(id = quantityPickerView.viewNameResId),
                     description = stringResource(id = quantityPickerView.descriptionResId)
+                )
+            }
+
+            // SplitButtonView
+            composable<Screens.SplitButtonView> { backStackEntry ->
+                val splitButtonView: Screens.SplitButtonView = backStackEntry.toRoute()
+                SplitButtonView(
+                    navController = navController,
+                    viewName = stringResource(id = splitButtonView.viewNameResId),
+                    description = stringResource(id = splitButtonView.descriptionResId)
                 )
             }
         }
