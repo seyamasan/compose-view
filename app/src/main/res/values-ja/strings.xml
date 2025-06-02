@@ -134,5 +134,7 @@
 <!--    SplitButtonView-->
     <string name="split_button_view_name">Split Button View</string>
     <string name="split_button_view_description">Split Button のサンプルです。</string>
+    <string name="leading_button_name">送る</string>
+    <string name="set_sending_date_and_time">送信日時を設定</string>
 
 </resources>

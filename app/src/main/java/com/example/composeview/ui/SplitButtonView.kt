@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -22,19 +24,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.composeview.R
+import com.example.composeview.ui.theme.ComposeViewTheme
 
 @Composable
 fun SplitButtonView(navController: NavHostController?, viewName: String, description: String) {
+    var isChecked by rememberSaveable { mutableStateOf(false) }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
@@ -53,7 +61,10 @@ fun SplitButtonView(navController: NavHostController?, viewName: String, descrip
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                FilledSplitButtonSample()
+                FilledSplitButtonSample(
+                    checked = isChecked,
+                    onCheckedChange = { isChecked = it }
+                )
             }
         }
     }
@@ -61,8 +72,10 @@ fun SplitButtonView(navController: NavHostController?, viewName: String, descrip
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
-fun FilledSplitButtonSample() {
-    var checked by remember { mutableStateOf(false) }
+private fun FilledSplitButtonSample(
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
 
     SplitButtonLayout(
         leadingButton = {
@@ -70,38 +83,64 @@ fun FilledSplitButtonSample() {
                 onClick = { /* Do Nothing */ },
             ) {
                 Icon(
-                    Icons.Filled.Edit,
+                    Icons.AutoMirrored.Filled.Send,
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
-                    contentDescription = "Edit Icon",
+                    contentDescription = "Send Icon",
                 )
                 Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-                Text("Edit")
+                Text(stringResource(id = R.string.leading_button_name))
             }
         },
         trailingButton = {
-            SplitButtonDefaults.TrailingButton(
-                checked = checked,
-                onCheckedChange = { checked = it },
-                modifier =
-                    Modifier.semantics {
-                        stateDescription = if (checked) "Expanded" else "Collapsed"
-                        contentDescription = "Toggle Button"
-                    },
-            ) {
-                val rotation: Float by
-                animateFloatAsState(
-                    targetValue = if (checked) 180f else 0f,
-                    label = "Trailing Icon Rotation"
-                )
-                Icon(
-                    Icons.Filled.KeyboardArrowDown,
+            Box {
+                SplitButtonDefaults.TrailingButton(
+                    checked = checked,
+                    onCheckedChange = onCheckedChange,
                     modifier =
-                        Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
-                            this.rotationZ = rotation
+                        Modifier.semantics {
+                            stateDescription = if (checked) "Expanded" else "Collapsed"
+                            contentDescription = "Toggle Button"
                         },
-                    contentDescription = "Localized description"
-                )
+                ) {
+                    val rotation: Float by
+                    animateFloatAsState(
+                        targetValue = if (checked) 180f else 0f,
+                        label = "Trailing Icon Rotation"
+                    )
+                    Icon(
+                        Icons.Filled.KeyboardArrowDown,
+                        modifier =
+                            Modifier.size(SplitButtonDefaults.TrailingIconSize).graphicsLayer {
+                                this.rotationZ = rotation
+                            },
+                        contentDescription = "Keyboard Arrow Down Icon"
+                    )
+                }
+
+                DropdownMenu(
+                    expanded = checked,
+                    onDismissRequest = { onCheckedChange(false) }
+                ) {
+                    DropdownMenuItem(
+                        text = { Text(stringResource(id = R.string.set_sending_date_and_time)) },
+                        onClick = {
+                            onCheckedChange(false)
+                        }
+                    )
+                }
             }
         }
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SplitButtonViewPreview() {
+    ComposeViewTheme {
+        SplitButtonView(
+            null,
+            viewName = stringResource(id = R.string.split_button_view_name),
+            description = stringResource(id = R.string.split_button_view_description)
+        )
+    }
 }
