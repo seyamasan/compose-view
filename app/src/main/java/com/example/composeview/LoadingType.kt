@@ -1,4 +1,4 @@
-package com.example.composeview.loading
+package com.example.composeview
 
 enum class LoadingType {
     LINEAR,

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
@@ -18,12 +17,16 @@ import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SplitButtonDefaults
 import androidx.compose.material3.SplitButtonLayout
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -37,16 +40,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.R
+import com.example.composeview.SplitButtonType
 import com.example.composeview.ui.theme.ComposeViewTheme
+import com.example.composeview.utils.SnackbarUtils
 
 @Composable
 fun SplitButtonView(navController: NavHostController?, viewName: String, description: String) {
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
     var isChecked by rememberSaveable { mutableStateOf(false) }
+    var splitButtonType by rememberSaveable { mutableStateOf(SplitButtonType.SENT) }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             TopBarView(navController, viewName, true)
+        },
+        snackbarHost = {
+            SnackbarHost(hostState = snackbarHostState)
         }
     ) { innerPadding ->
         Column(
@@ -61,9 +72,19 @@ fun SplitButtonView(navController: NavHostController?, viewName: String, descrip
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
+                val buttonTypeString = stringResource(id = splitButtonType.stringResourceId)
+                val message = stringResource(id = R.string.leading_button_tapped, buttonTypeString)
                 FilledSplitButtonSample(
                     checked = isChecked,
-                    onCheckedChange = { isChecked = it }
+                    buttonType = splitButtonType,
+                    onLeadingButtonTapped = {
+                        SnackbarUtils.showSnackbar(scope, snackbarHostState, message)
+                    },
+                    onCheckedChange = { isChecked = it },
+                    onChangedButtonType = {
+                        splitButtonType = it
+                        isChecked = false
+                    }
                 )
             }
         }
@@ -74,21 +95,26 @@ fun SplitButtonView(navController: NavHostController?, viewName: String, descrip
 @Composable
 private fun FilledSplitButtonSample(
     checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
+    buttonType: SplitButtonType,
+    onLeadingButtonTapped: () -> Unit,
+    onCheckedChange: (Boolean) -> Unit,
+    onChangedButtonType: (SplitButtonType) -> Unit
 ) {
+    val buttonTypeString: String = stringResource(id = buttonType.stringResourceId)
+    val menuString: String = stringResource(id = buttonType.getReverseTypeStringResourceId())
 
     SplitButtonLayout(
         leadingButton = {
             SplitButtonDefaults.LeadingButton(
-                onClick = { /* Do Nothing */ },
+                onClick = onLeadingButtonTapped,
             ) {
                 Icon(
-                    Icons.AutoMirrored.Filled.Send,
+                    buttonType.getIcon(),
                     modifier = Modifier.size(SplitButtonDefaults.LeadingIconSize),
-                    contentDescription = "Send Icon",
+                    contentDescription = "Leading Button Icon",
                 )
                 Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-                Text(stringResource(id = R.string.leading_button_name))
+                Text(buttonTypeString)
             }
         },
         trailingButton = {
@@ -122,10 +148,8 @@ private fun FilledSplitButtonSample(
                     onDismissRequest = { onCheckedChange(false) }
                 ) {
                     DropdownMenuItem(
-                        text = { Text(stringResource(id = R.string.set_sending_date_and_time)) },
-                        onClick = {
-                            onCheckedChange(false)
-                        }
+                        text = { Text(menuString) },
+                        onClick = { onChangedButtonType(buttonType.getReverseType()) }
                     )
                 }
             }

@@ -135,6 +135,7 @@
     <string name="split_button_view_name">Split Button View</string>
     <string name="split_button_view_description">This is a sample of Split Button.</string>
     <string name="leading_button_name">Send</string>
-    <string name="set_sending_date_and_time">送信日時を設定</string>
+    <string name="set_sending_date_and_time">Set sending date and time</string>
+    <string name="leading_button_tapped">Tapped the %1$s button</string>
 
 </resources>
