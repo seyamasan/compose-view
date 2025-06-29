@@ -6,24 +6,24 @@ import kotlinx.serialization.Serializable
 class Screens {
     companion object {
         val screenList = listOf(
-            ButtonView(),
-            FloatingActionButtonView(),
-            CardView(),
-            ChipView(),
-            DialogView(),
-            IndicatorView(),
-            SliderView(),
-            SwitchView(),
-            CheckboxView(),
-            BudgeBoxView(),
             BottomSheetView(),
-            NavigationDrawerView(),
-            DividerView(),
+            ButtonView(),
+            BudgeBoxView(),
+            CardView(),
+            CheckboxView(),
+            ChipView(),
             DatePickerView(),
-            TimePikerView(),
+            DialogView(),
+            DividerView(),
+            FloatingActionButtonView(),
+            HorizontalFloatingToolbarView(),
+            IndicatorView(),
+            NavigationDrawerView(),
             QuantityPickerView(),
+            SliderView(),
             SplitButtonView(),
-            HorizontalFloatingToolbarView()
+            SwitchView(),
+            TimePikerView()
         )
     }
 

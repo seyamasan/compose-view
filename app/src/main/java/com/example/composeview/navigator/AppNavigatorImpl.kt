@@ -34,14 +34,14 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
         NavHost(
             navController = navController, Screens.Home
         ) {
-            // ホーム
+            // View of Home
             composable<Screens.Home> {
                 HomeView(
                     navController = navController
                 )
             }
 
-            // ButtonのView
+            // View of Button
             composable<Screens.ButtonView> { backStackEntry ->
                 val screen: Screens.ButtonView = backStackEntry.toRoute()
                 ButtonView(
@@ -51,7 +51,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // FloatingActionButtonのView
+            // View of FloatingActionButton
             composable<Screens.FloatingActionButtonView> { backStackEntry ->
                 val screen: Screens.FloatingActionButtonView = backStackEntry.toRoute()
                 FloatingActionButtonView(
@@ -61,7 +61,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // CardのView
+            // View of Card
             composable<Screens.CardView> { backStackEntry ->
                 val screen: Screens.CardView = backStackEntry.toRoute()
                 CardView(
@@ -71,7 +71,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // ChipのView
+            // View of Chip
             composable<Screens.ChipView> { backStackEntry ->
                 val screen: Screens.ChipView = backStackEntry.toRoute()
                 ChipView(
@@ -81,7 +81,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // DialogのView
+            // View of Dialog
             composable<Screens.DialogView> { backStackEntry ->
                 val screen: Screens.DialogView = backStackEntry.toRoute()
                 DialogView(
@@ -91,7 +91,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // IndicatorのView
+            // View of Indicator
             composable<Screens.IndicatorView> { backStackEntry ->
                 val screen: Screens.IndicatorView = backStackEntry.toRoute()
                 IndicatorView(
@@ -101,7 +101,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // SliderのView
+            // View of Slider
             composable<Screens.SliderView> { backStackEntry ->
                 val screen: Screens.SliderView = backStackEntry.toRoute()
                 SliderView(
@@ -111,7 +111,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // SwitchのView
+            // View of Switch
             composable<Screens.SwitchView> { backStackEntry ->
                 val screen: Screens.SwitchView = backStackEntry.toRoute()
                 SwitchView(
@@ -121,7 +121,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // CheckboxのView
+            // View of Checkbox
             composable<Screens.CheckboxView> { backStackEntry ->
                 val screen: Screens.CheckboxView = backStackEntry.toRoute()
                 CheckboxView(
@@ -131,7 +131,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // BudgeBoxのView
+            // View of BudgeBox
             composable<Screens.BudgeBoxView> { backStackEntry ->
                 val screen: Screens.BudgeBoxView = backStackEntry.toRoute()
                 BudgeBoxView(
@@ -141,7 +141,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // BottomSheetのView
+            // View of BottomSheet
             composable<Screens.BottomSheetView> { backStackEntry ->
                 val screen: Screens.BottomSheetView = backStackEntry.toRoute()
                 BottomSheetView(
@@ -151,7 +151,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // NavigationDrawerのView
+            // View of NavigationDrawer
             composable<Screens.NavigationDrawerView> { backStackEntry ->
                 val screen: Screens.NavigationDrawerView = backStackEntry.toRoute()
                 NavigationDrawerView(
@@ -161,7 +161,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // DividerのView
+            // View of Divider
             composable<Screens.DividerView> { backStackEntry ->
                 val screen: Screens.DividerView = backStackEntry.toRoute()
                 DividerView(
@@ -171,7 +171,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // DatePickerのView
+            // View of DatePicker
             composable<Screens.DatePickerView> { backStackEntry ->
                 val screen: Screens.DatePickerView = backStackEntry.toRoute()
                 DatePickerView(
@@ -181,7 +181,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // TimePikerのView
+            // View of TimePiker
             composable<Screens.TimePikerView> { backStackEntry ->
                 val screen: Screens.TimePikerView = backStackEntry.toRoute()
                 TimePikerView(
@@ -191,7 +191,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // QuantityPickerView
+            // View of QuantityPicker
             composable<Screens.QuantityPickerView> { backStackEntry ->
                 val screen: Screens.QuantityPickerView = backStackEntry.toRoute()
                 QuantityPickerView(
@@ -201,7 +201,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // SplitButtonView
+            //View of SplitButton
             composable<Screens.SplitButtonView> { backStackEntry ->
                 val screen: Screens.SplitButtonView = backStackEntry.toRoute()
                 SplitButtonView(
@@ -211,7 +211,7 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
                 )
             }
 
-            // HorizontalFloatingToolbarView
+            // View of HorizontalFloatingToolbar
             composable<Screens.HorizontalFloatingToolbarView> { backStackEntry ->
                 val screen: Screens.HorizontalFloatingToolbarView = backStackEntry.toRoute()
                 HorizontalFloatingToolbarView(
