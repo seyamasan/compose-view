@@ -22,7 +22,8 @@ class Screens {
             DatePickerView(),
             TimePikerView(),
             QuantityPickerView(),
-            SplitButtonView()
+            SplitButtonView(),
+            HorizontalFloatingToolbarView()
         )
     }
 
@@ -129,5 +130,11 @@ class Screens {
     data class SplitButtonView(
         override val viewNameResId: Int = R.string.split_button_view_name,
         override val descriptionResId: Int = R.string.split_button_view_description
+    ):ScreenData
+
+    @Serializable
+    data class HorizontalFloatingToolbarView(
+        override val viewNameResId: Int = R.string.horizontal_floating_toolbar_view_name,
+        override val descriptionResId: Int = R.string.horizontal_floating_toolbar_view_description
     ):ScreenData
 }

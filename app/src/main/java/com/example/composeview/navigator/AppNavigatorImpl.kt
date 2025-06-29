@@ -18,6 +18,7 @@ import com.example.composeview.ui.DialogView
 import com.example.composeview.ui.DividerView
 import com.example.composeview.ui.FloatingActionButtonView
 import com.example.composeview.ui.HomeView
+import com.example.composeview.ui.HorizontalFloatingToolbarView
 import com.example.composeview.ui.IndicatorView
 import com.example.composeview.ui.NavigationDrawerView
 import com.example.composeview.ui.QuantityPickerView
@@ -42,171 +43,181 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
 
             // ButtonのView
             composable<Screens.ButtonView> { backStackEntry ->
-                val buttonView: Screens.ButtonView = backStackEntry.toRoute()
+                val screen: Screens.ButtonView = backStackEntry.toRoute()
                 ButtonView(
                     navController = navController,
-                    viewName = stringResource(id = buttonView.viewNameResId),
-                    description = stringResource(id = buttonView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // FloatingActionButtonのView
             composable<Screens.FloatingActionButtonView> { backStackEntry ->
-                val floatingActionButtonView: Screens.FloatingActionButtonView = backStackEntry.toRoute()
+                val screen: Screens.FloatingActionButtonView = backStackEntry.toRoute()
                 FloatingActionButtonView(
                     navController = navController,
-                    viewName = stringResource(id = floatingActionButtonView.viewNameResId),
-                    description = stringResource(id = floatingActionButtonView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // CardのView
             composable<Screens.CardView> { backStackEntry ->
-                val cardView: Screens.CardView = backStackEntry.toRoute()
+                val screen: Screens.CardView = backStackEntry.toRoute()
                 CardView(
                     navController = navController,
-                    viewName = stringResource(id = cardView.viewNameResId),
-                    description = stringResource(id = cardView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // ChipのView
             composable<Screens.ChipView> { backStackEntry ->
-                val chipView: Screens.ChipView = backStackEntry.toRoute()
+                val screen: Screens.ChipView = backStackEntry.toRoute()
                 ChipView(
                     navController = navController,
-                    viewName = stringResource(id = chipView.viewNameResId),
-                    description = stringResource(id = chipView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // DialogのView
             composable<Screens.DialogView> { backStackEntry ->
-                val dialogView: Screens.DialogView = backStackEntry.toRoute()
+                val screen: Screens.DialogView = backStackEntry.toRoute()
                 DialogView(
                     navController = navController,
-                    viewName = stringResource(id = dialogView.viewNameResId),
-                    description = stringResource(id = dialogView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // IndicatorのView
             composable<Screens.IndicatorView> { backStackEntry ->
-                val indicatorView: Screens.IndicatorView = backStackEntry.toRoute()
+                val screen: Screens.IndicatorView = backStackEntry.toRoute()
                 IndicatorView(
                     navController = navController,
-                    viewName = stringResource(id = indicatorView.viewNameResId),
-                    description = stringResource(id = indicatorView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // SliderのView
             composable<Screens.SliderView> { backStackEntry ->
-                val sliderView: Screens.SliderView = backStackEntry.toRoute()
+                val screen: Screens.SliderView = backStackEntry.toRoute()
                 SliderView(
                     navController = navController,
-                    viewName = stringResource(id = sliderView.viewNameResId),
-                    description = stringResource(id = sliderView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // SwitchのView
             composable<Screens.SwitchView> { backStackEntry ->
-                val switchView: Screens.SwitchView = backStackEntry.toRoute()
+                val screen: Screens.SwitchView = backStackEntry.toRoute()
                 SwitchView(
                     navController = navController,
-                    viewName = stringResource(id = switchView.viewNameResId),
-                    description = stringResource(id = switchView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // CheckboxのView
             composable<Screens.CheckboxView> { backStackEntry ->
-                val checkboxView: Screens.CheckboxView = backStackEntry.toRoute()
+                val screen: Screens.CheckboxView = backStackEntry.toRoute()
                 CheckboxView(
                     navController = navController,
-                    viewName = stringResource(id = checkboxView.viewNameResId),
-                    description = stringResource(id = checkboxView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // BudgeBoxのView
             composable<Screens.BudgeBoxView> { backStackEntry ->
-                val budgeBoxView: Screens.BudgeBoxView = backStackEntry.toRoute()
+                val screen: Screens.BudgeBoxView = backStackEntry.toRoute()
                 BudgeBoxView(
                     navController = navController,
-                    viewName = stringResource(id = budgeBoxView.viewNameResId),
-                    description = stringResource(id = budgeBoxView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // BottomSheetのView
             composable<Screens.BottomSheetView> { backStackEntry ->
-                val bottomSheetView: Screens.BottomSheetView = backStackEntry.toRoute()
+                val screen: Screens.BottomSheetView = backStackEntry.toRoute()
                 BottomSheetView(
                     navController = navController,
-                    viewName = stringResource(id = bottomSheetView.viewNameResId),
-                    description = stringResource(id = bottomSheetView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // NavigationDrawerのView
             composable<Screens.NavigationDrawerView> { backStackEntry ->
-                val navigationDrawerView: Screens.NavigationDrawerView = backStackEntry.toRoute()
+                val screen: Screens.NavigationDrawerView = backStackEntry.toRoute()
                 NavigationDrawerView(
                     navController = navController,
-                    viewName = stringResource(id = navigationDrawerView.viewNameResId),
-                    description = stringResource(id = navigationDrawerView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // DividerのView
             composable<Screens.DividerView> { backStackEntry ->
-                val dividerView: Screens.DividerView = backStackEntry.toRoute()
+                val screen: Screens.DividerView = backStackEntry.toRoute()
                 DividerView(
                     navController = navController,
-                    viewName = stringResource(id = dividerView.viewNameResId),
-                    description = stringResource(id = dividerView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // DatePickerのView
             composable<Screens.DatePickerView> { backStackEntry ->
-                val datePickerView: Screens.DatePickerView = backStackEntry.toRoute()
+                val screen: Screens.DatePickerView = backStackEntry.toRoute()
                 DatePickerView(
                     navController = navController,
-                    viewName = stringResource(id = datePickerView.viewNameResId),
-                    description = stringResource(id = datePickerView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // TimePikerのView
             composable<Screens.TimePikerView> { backStackEntry ->
-                val timePikerView: Screens.TimePikerView = backStackEntry.toRoute()
+                val screen: Screens.TimePikerView = backStackEntry.toRoute()
                 TimePikerView(
                     navController = navController,
-                    viewName = stringResource(id = timePikerView.viewNameResId),
-                    description = stringResource(id = timePikerView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // QuantityPickerView
             composable<Screens.QuantityPickerView> { backStackEntry ->
-                val quantityPickerView: Screens.QuantityPickerView = backStackEntry.toRoute()
+                val screen: Screens.QuantityPickerView = backStackEntry.toRoute()
                 QuantityPickerView(
                     navController = navController,
-                    viewName = stringResource(id = quantityPickerView.viewNameResId),
-                    description = stringResource(id = quantityPickerView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
 
             // SplitButtonView
             composable<Screens.SplitButtonView> { backStackEntry ->
-                val splitButtonView: Screens.SplitButtonView = backStackEntry.toRoute()
+                val screen: Screens.SplitButtonView = backStackEntry.toRoute()
                 SplitButtonView(
                     navController = navController,
-                    viewName = stringResource(id = splitButtonView.viewNameResId),
-                    description = stringResource(id = splitButtonView.descriptionResId)
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
+                )
+            }
+
+            // HorizontalFloatingToolbarView
+            composable<Screens.HorizontalFloatingToolbarView> { backStackEntry ->
+                val screen: Screens.HorizontalFloatingToolbarView = backStackEntry.toRoute()
+                HorizontalFloatingToolbarView(
+                    navController = navController,
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
                 )
             }
         }

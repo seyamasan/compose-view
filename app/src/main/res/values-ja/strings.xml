@@ -138,4 +138,9 @@
     <string name="set_sending_date_and_time">送信日時を設定</string>
     <string name="leading_button_tapped">%1$sボタンをタップしました。</string>
 
+<!--    HorizontalFloatingToolbarView-->
+    <string name="horizontal_floating_toolbar_view_name">Horizontal Floating Toolbar View</string>
+    <string name="horizontal_floating_toolbar_view_description">Horizontal Floating Toolbar のサンプルです。</string>
+    <string name="horizontal_floating_toolbar_view_icon_tapped">%1$sアイコンをタップしました。</string>
+
 </resources>

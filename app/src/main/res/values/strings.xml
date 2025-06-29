@@ -138,4 +138,9 @@
     <string name="set_sending_date_and_time">Set sending date and time</string>
     <string name="leading_button_tapped">Tapped the %1$s button</string>
 
+<!--    HorizontalFloatingToolbarView-->
+    <string name="horizontal_floating_toolbar_view_name">Horizontal Floating Toolbar View</string>
+    <string name="horizontal_floating_toolbar_view_description">This is a sample of Horizontal Floating Toolbar.</string>
+    <string name="horizontal_floating_toolbar_view_icon_tapped">Tapped the %1$s icon</string>
+
 </resources>
