@@ -40,7 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.composeview.R
-import com.example.composeview.SplitButtonType
+import com.example.composeview.utils.types.SplitButtonType
 import com.example.composeview.ui.theme.ComposeViewTheme
 import com.example.composeview.utils.SnackbarUtils
 

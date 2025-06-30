@@ -1,9 +1,10 @@
-package com.example.composeview
+package com.example.composeview.utils.types
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ScheduleSend
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.composeview.R
 
 enum class SplitButtonType(val stringResourceId: Int) {
     SENT(R.string.leading_button_name),

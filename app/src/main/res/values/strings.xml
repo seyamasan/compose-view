@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Compose View</string>
 
-<!--    Button View-->
+<!--    ButtonView-->
     <string name="button_view_name">Button View</string>
     <string name="button_view_description">There are 5 types of Buttons in Jetpack Compose.</string>
     <string name="button_name">Button</string>
@@ -142,5 +142,9 @@
     <string name="horizontal_floating_toolbar_view_name">Horizontal Floating Toolbar View</string>
     <string name="horizontal_floating_toolbar_view_description">This is a sample of Horizontal Floating Toolbar.</string>
     <string name="horizontal_floating_toolbar_view_icon_tapped">Tapped the %1$s icon</string>
+
+<!--    ButtonGroupView-->
+    <string name="button_group_view_name">Button Group View</string>
+    <string name="button_group_view_description">This is a sample of Button Group.</string>
 
 </resources>

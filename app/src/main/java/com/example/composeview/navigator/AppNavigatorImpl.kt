@@ -9,6 +9,7 @@ import androidx.navigation.toRoute
 import com.example.composeview.screens.Screens
 import com.example.composeview.ui.BottomSheetView
 import com.example.composeview.ui.BudgeBoxView
+import com.example.composeview.ui.ButtonGroupView
 import com.example.composeview.ui.ButtonView
 import com.example.composeview.ui.CardView
 import com.example.composeview.ui.CheckboxView
@@ -215,6 +216,16 @@ class AppNavigatorImpl (private val navController: NavHostController) : AppNavig
             composable<Screens.HorizontalFloatingToolbarView> { backStackEntry ->
                 val screen: Screens.HorizontalFloatingToolbarView = backStackEntry.toRoute()
                 HorizontalFloatingToolbarView(
+                    navController = navController,
+                    viewName = stringResource(id = screen.viewNameResId),
+                    description = stringResource(id = screen.descriptionResId)
+                )
+            }
+
+            // View of ButtonGroup
+            composable<Screens.ButtonGroupView> { backStackEntry ->
+                val screen: Screens.ButtonGroupView = backStackEntry.toRoute()
+                ButtonGroupView(
                     navController = navController,
                     viewName = stringResource(id = screen.viewNameResId),
                     description = stringResource(id = screen.descriptionResId)

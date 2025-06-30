@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Compose View</string>
 
-<!--    Button View-->
+<!--    ButtonView-->
     <string name="button_view_name">Button View</string>
     <string name="button_view_description">Jetpack ComposeのButtonは5種類あります。</string>
     <string name="button_name">Button</string>
@@ -142,5 +142,9 @@
     <string name="horizontal_floating_toolbar_view_name">Horizontal Floating Toolbar View</string>
     <string name="horizontal_floating_toolbar_view_description">Horizontal Floating Toolbar のサンプルです。</string>
     <string name="horizontal_floating_toolbar_view_icon_tapped">%1$sアイコンをタップしました。</string>
+
+<!--    ButtonGroupView-->
+    <string name="button_group_view_name">Button Group View</string>
+    <string name="button_group_view_description">Button Groupのサンプルです。</string>
 
 </resources>

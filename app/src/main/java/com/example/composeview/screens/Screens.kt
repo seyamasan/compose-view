@@ -7,6 +7,7 @@ class Screens {
     companion object {
         val screenList = listOf(
             BottomSheetView(),
+            ButtonGroupView(),
             ButtonView(),
             BudgeBoxView(),
             CardView(),
@@ -136,5 +137,11 @@ class Screens {
     data class HorizontalFloatingToolbarView(
         override val viewNameResId: Int = R.string.horizontal_floating_toolbar_view_name,
         override val descriptionResId: Int = R.string.horizontal_floating_toolbar_view_description
+    ):ScreenData
+
+    @Serializable
+    data class ButtonGroupView(
+        override val viewNameResId: Int = R.string.button_group_view_name,
+        override val descriptionResId: Int = R.string.button_group_view_description
     ):ScreenData
 }
